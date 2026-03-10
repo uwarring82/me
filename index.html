@@ -21,6 +21,42 @@
             --color-border-light: #e8e5de;
             --max-width: 720px;
             --side-padding: 2rem;
+
+            /* ── Pastel rainbow accents per section ── */
+            --pastel-rose: #b56b6b;
+            --pastel-rose-light: #e8c4c4;
+            --pastel-rose-bg: #faf3f3;
+            --pastel-amber: #a68a4b;
+            --pastel-amber-light: #e5d5ad;
+            --pastel-amber-bg: #faf7f0;
+            --pastel-sage: #5e8a6b;
+            --pastel-sage-light: #bdd4c4;
+            --pastel-sage-bg: #f3f8f5;
+            --pastel-lavender: #6b6b9e;
+            --pastel-lavender-light: #c7c7e0;
+            --pastel-lavender-bg: #f4f4fa;
+        }
+
+        /* ── Section-scoped accent overrides ── */
+        #about {
+            --section-accent: var(--pastel-rose);
+            --section-accent-light: var(--pastel-rose-light);
+            --section-accent-bg: var(--pastel-rose-bg);
+        }
+        #research {
+            --section-accent: var(--pastel-amber);
+            --section-accent-light: var(--pastel-amber-light);
+            --section-accent-bg: var(--pastel-amber-bg);
+        }
+        #teaching {
+            --section-accent: var(--pastel-sage);
+            --section-accent-light: var(--pastel-sage-light);
+            --section-accent-bg: var(--pastel-sage-bg);
+        }
+        #open-science {
+            --section-accent: var(--pastel-lavender);
+            --section-accent-light: var(--pastel-lavender-light);
+            --section-accent-bg: var(--pastel-lavender-bg);
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -83,11 +119,29 @@
             text-decoration: none;
             letter-spacing: 0.01em;
             transition: color 0.2s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.15rem;
         }
 
-        nav .nav-links a:hover,
-        nav .nav-links a:focus-visible {
-            color: var(--color-accent);
+        nav .nav-links a:nth-child(1):hover,
+        nav .nav-links a:nth-child(1):focus-visible {
+            color: var(--pastel-rose);
+            border-bottom-color: var(--pastel-rose-light);
+        }
+        nav .nav-links a:nth-child(2):hover,
+        nav .nav-links a:nth-child(2):focus-visible {
+            color: var(--pastel-amber);
+            border-bottom-color: var(--pastel-amber-light);
+        }
+        nav .nav-links a:nth-child(3):hover,
+        nav .nav-links a:nth-child(3):focus-visible {
+            color: var(--pastel-sage);
+            border-bottom-color: var(--pastel-sage-light);
+        }
+        nav .nav-links a:nth-child(4):hover,
+        nav .nav-links a:nth-child(4):focus-visible {
+            color: var(--pastel-lavender);
+            border-bottom-color: var(--pastel-lavender-light);
         }
 
         /* ── Focus styles ── */
@@ -96,6 +150,10 @@
             outline: 2px solid var(--color-accent);
             outline-offset: 2px;
             border-radius: 2px;
+        }
+
+        section a:focus-visible {
+            outline-color: var(--section-accent, var(--color-accent));
         }
 
         /* ── Main content ── */
@@ -190,16 +248,23 @@
         /* ── Sections ── */
         section {
             padding: 2.5rem 0 2rem;
-            border-top: 1px solid var(--color-border-light);
+            border-top: 2px solid var(--section-accent-light, var(--color-border-light));
         }
 
-        h2 {
+        section a {
+            color: var(--section-accent, var(--color-accent));
+        }
+
+        section h2 {
             font-family: var(--font-heading);
             font-size: 1.12rem;
             font-weight: 600;
             letter-spacing: 0.02em;
             margin-bottom: 1.15rem;
             color: var(--color-text);
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--section-accent-light, var(--color-border-light));
+            display: inline-block;
         }
 
         h3 {
@@ -248,7 +313,7 @@
         .pub-list li .doi {
             font-family: var(--font-heading);
             font-size: 0.73rem;
-            color: var(--color-accent-light);
+            color: var(--section-accent, var(--color-accent-light));
         }
 
         .pub-label {
@@ -257,7 +322,7 @@
             font-weight: 600;
             letter-spacing: 0.03em;
             text-transform: uppercase;
-            color: var(--color-text-secondary);
+            color: var(--section-accent, var(--color-text-secondary));
             margin-top: 1.2rem;
             margin-bottom: 0.4rem;
         }
@@ -267,8 +332,8 @@
             font-family: var(--font-heading);
             font-size: 0.82rem;
             line-height: 1.6;
-            background: #f6f5f2;
-            border-left: 2px solid var(--color-border-light);
+            background: var(--section-accent-bg, #f6f5f2);
+            border-left: 2px solid var(--section-accent-light, var(--color-border-light));
             padding: 0.6rem 1rem;
             margin: 0.8rem 0 1.2rem;
             border-radius: 0 2px 2px 0;
@@ -277,7 +342,7 @@
 
         .open-research a {
             font-weight: 500;
-            color: var(--color-accent);
+            color: var(--section-accent, var(--color-accent));
         }
 
         /* ── Full record link row ── */
@@ -286,7 +351,7 @@
             font-size: 0.82rem;
             margin-top: 1.5rem;
             padding-top: 1rem;
-            border-top: 1px solid var(--color-border-light);
+            border-top: 1px solid var(--section-accent-light, var(--color-border-light));
             display: flex;
             gap: 1.5rem;
         }
@@ -310,7 +375,7 @@
             content: '\2013';
             position: absolute;
             left: 0;
-            color: var(--color-text-secondary);
+            color: var(--section-accent, var(--color-text-secondary));
         }
 
         .course-list .course-title { font-style: italic; }
@@ -325,7 +390,7 @@
         .cv-snapshot {
             margin-top: 1.2rem;
             padding-top: 1rem;
-            border-top: 1px solid var(--color-border-light);
+            border-top: 1px solid var(--section-accent-light, var(--color-border-light));
         }
 
         .cv-snapshot h3 { margin-top: 0; }
@@ -358,15 +423,15 @@
             font-size: 0.82rem;
             font-weight: 500;
             padding: 0.45rem 1.1rem;
-            border: 1px solid var(--color-accent);
+            border: 1px solid var(--section-accent, var(--color-accent));
             border-radius: 3px;
-            color: var(--color-accent);
+            color: var(--section-accent, var(--color-accent));
             transition: all 0.2s ease;
         }
 
         .harbour-link:hover,
         .harbour-link:focus-visible {
-            background: var(--color-accent);
+            background: var(--section-accent, var(--color-accent));
             color: #fff;
             text-decoration: none;
         }
