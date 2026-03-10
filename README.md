@@ -18,7 +18,7 @@ plain HTML and CSS served directly.
 ```
 .
 ├── index.html      Main (and only) page
-├── photo.jpg       Portrait photograph
+├── photo.png       Portrait photograph
 ├── README.md       This file
 └── LICENSE         MIT licence for code
 ```
@@ -29,7 +29,7 @@ plain HTML and CSS served directly.
 1. Edit `index.html` directly. All content, styles, and structure are in this
    single file.
 2. Commit and push to the `main` branch. GitHub Pages will deploy automatically.
-3. To replace the portrait, overwrite `photo.jpg` with a new file of the same
+3. To replace the portrait, overwrite `photo.png` with a new file of the same
    name.
 
 
@@ -46,6 +46,11 @@ corresponding `href` in `index.html`:
 | ORCID | https://orcid.org/0000-0001-8081-9718 |
 | GitHub profile | https://github.com/uwarring82 |
 | CCUF (Zenodo) | https://doi.org/10.5281/zenodo.17948436 |
+| Quantum Relaxation Ordering | https://deep-relaxation-ordering.github.io/q-root/ |
+| Stroboscopic Travelling Waves | https://strobo-travels-deep.github.io/root/ |
+| Generator Layers (GLHC) | https://threehouse-plus-ec.github.io/GLHC/ |
+| Numerical Clock Networks | https://adv-labs-ufr.github.io/numerical_clock_networks/ |
+| One Propagator, Three Regimes | https://uwarring82.github.io/advlab_bsm/ |
 
 
 ## Photo
