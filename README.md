@@ -3,7 +3,7 @@
 Personal academic website of Ulrich Warring — experimental quantum physicist at
 the University of Freiburg.
 
-**Live page:** [https://uwarring82.github.io](https://uwarring82.github.io)
+**Live page:** [https://uwarring82.github.io/me/](https://uwarring82.github.io/me/)
 
 
 ## What this is
