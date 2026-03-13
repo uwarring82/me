@@ -22,41 +22,33 @@
             --max-width: 720px;
             --side-padding: 2rem;
 
-            /* ── Pastel rainbow accents per section ── */
-            --pastel-rose: #b56b6b;
-            --pastel-rose-light: #e8c4c4;
-            --pastel-rose-bg: #faf3f3;
-            --pastel-amber: #a68a4b;
-            --pastel-amber-light: #e5d5ad;
-            --pastel-amber-bg: #faf7f0;
+            /* ── Spectral accents: blue (top) → green → rose (bottom) ── */
+            --pastel-blue: #4a6a8a;
+            --pastel-blue-light: #b8cce0;
+            --pastel-blue-bg: #f1f5fa;
             --pastel-sage: #5e8a6b;
             --pastel-sage-light: #bdd4c4;
             --pastel-sage-bg: #f3f8f5;
-            --pastel-lavender: #6b6b9e;
-            --pastel-lavender-light: #c7c7e0;
-            --pastel-lavender-bg: #f4f4fa;
+            --pastel-rose: #9a5a5a;
+            --pastel-rose-light: #dbbfbf;
+            --pastel-rose-bg: #faf3f3;
         }
 
         /* ── Section-scoped accent overrides ── */
         #about {
-            --section-accent: var(--pastel-rose);
-            --section-accent-light: var(--pastel-rose-light);
-            --section-accent-bg: var(--pastel-rose-bg);
+            --section-accent: var(--pastel-blue);
+            --section-accent-light: var(--pastel-blue-light);
+            --section-accent-bg: var(--pastel-blue-bg);
         }
         #research {
-            --section-accent: var(--pastel-amber);
-            --section-accent-light: var(--pastel-amber-light);
-            --section-accent-bg: var(--pastel-amber-bg);
-        }
-        #teaching {
             --section-accent: var(--pastel-sage);
             --section-accent-light: var(--pastel-sage-light);
             --section-accent-bg: var(--pastel-sage-bg);
         }
-        #open-science {
-            --section-accent: var(--pastel-lavender);
-            --section-accent-light: var(--pastel-lavender-light);
-            --section-accent-bg: var(--pastel-lavender-bg);
+        #teaching {
+            --section-accent: var(--pastel-rose);
+            --section-accent-light: var(--pastel-rose-light);
+            --section-accent-bg: var(--pastel-rose-bg);
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,7 +68,7 @@
             font-weight: 400;
         }
 
-        /* ── Navigation (quiet) ── */
+        /* ── Navigation ── */
         nav {
             position: sticky;
             top: 0;
@@ -125,33 +117,26 @@
 
         nav .nav-links a:nth-child(1):hover,
         nav .nav-links a:nth-child(1):focus-visible {
-            color: var(--pastel-rose);
-            border-bottom-color: var(--pastel-rose-light);
+            color: var(--pastel-blue);
+            border-bottom-color: var(--pastel-blue-light);
         }
         nav .nav-links a:nth-child(2):hover,
         nav .nav-links a:nth-child(2):focus-visible {
-            color: var(--pastel-amber);
-            border-bottom-color: var(--pastel-amber-light);
-        }
-        nav .nav-links a:nth-child(3):hover,
-        nav .nav-links a:nth-child(3):focus-visible {
             color: var(--pastel-sage);
             border-bottom-color: var(--pastel-sage-light);
         }
-        nav .nav-links a:nth-child(4):hover,
-        nav .nav-links a:nth-child(4):focus-visible {
-            color: var(--pastel-lavender);
-            border-bottom-color: var(--pastel-lavender-light);
+        nav .nav-links a:nth-child(3):hover,
+        nav .nav-links a:nth-child(3):focus-visible {
+            color: var(--pastel-rose);
+            border-bottom-color: var(--pastel-rose-light);
         }
 
         /* ── Focus styles ── */
-        a:focus-visible,
-        button:focus-visible {
+        a:focus-visible, button:focus-visible {
             outline: 2px solid var(--color-accent);
             outline-offset: 2px;
             border-radius: 2px;
         }
-
         section a:focus-visible {
             outline-color: var(--section-accent, var(--color-accent));
         }
@@ -171,19 +156,53 @@
             align-items: flex-start;
         }
 
-        .hero-photo {
+        /* ── Network photo container ── */
+        .hero-photo-container {
             flex-shrink: 0;
-            width: 120px;
-            height: 120px;
-            border-radius: 5px;
-            object-fit: cover;
-            border: 1px solid var(--color-border-light);
+            width: 150px;
+            height: 150px;
+            position: relative;
         }
 
-        .hero-text {
-            flex: 1;
-            min-width: 0;
+        .network-svg {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 190px;
+            height: 190px;
+            overflow: visible;
         }
+
+        .network-edge {
+            stroke: var(--color-border);
+            stroke-width: 0.6;
+            fill: none;
+        }
+
+        .network-node-fill {
+            fill: var(--color-bg);
+            stroke: var(--color-border);
+            stroke-width: 0.6;
+        }
+
+        .network-self {
+            fill: none;
+            stroke: var(--color-border);
+            stroke-width: 0.8;
+        }
+
+        .hero-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            clip-path: circle(50% at 50% 50%);
+        }
+
+        .hero-text { flex: 1; min-width: 0; }
 
         .hero-text h1 {
             font-family: var(--font-heading);
@@ -208,15 +227,8 @@
             color: var(--color-text-secondary);
             line-height: 1.7;
         }
-
-        .hero-meta a {
-            color: var(--color-accent);
-            text-decoration: none;
-        }
-
-        .hero-meta a:hover {
-            text-decoration: underline;
-        }
+        .hero-meta a { color: var(--color-accent); text-decoration: none; }
+        .hero-meta a:hover { text-decoration: underline; }
 
         .hero-links {
             margin-top: 0.7rem;
@@ -237,9 +249,7 @@
             border-radius: 3px;
             transition: all 0.2s ease;
         }
-
-        .hero-links a:hover,
-        .hero-links a:focus-visible {
+        .hero-links a:hover, .hero-links a:focus-visible {
             background: var(--color-accent);
             color: #fff;
             border-color: var(--color-accent);
@@ -250,10 +260,7 @@
             padding: 2.5rem 0 2rem;
             border-top: 2px solid var(--section-accent-light, var(--color-border-light));
         }
-
-        section a {
-            color: var(--section-accent, var(--color-accent));
-        }
+        section a { color: var(--section-accent, var(--color-accent)); }
 
         section h2 {
             font-family: var(--font-heading);
@@ -278,28 +285,13 @@
         }
 
         p { margin-bottom: 0.9rem; }
-
         a { color: var(--color-accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        /* ── Research areas ── */
-        .research-areas {
-            margin: 0.5rem 0 1rem;
-            padding-left: 1.2rem;
-        }
+        .research-areas { margin: 0.5rem 0 1rem; padding-left: 1.2rem; }
+        .research-areas li { margin-bottom: 0.25rem; font-size: 0.95rem; }
 
-        .research-areas li {
-            margin-bottom: 0.25rem;
-            font-size: 0.95rem;
-        }
-
-        /* ── Publication lists ── */
-        .pub-list {
-            list-style: none;
-            padding: 0;
-            margin: 0.5rem 0 1.2rem;
-        }
-
+        .pub-list { list-style: none; padding: 0; margin: 0.5rem 0 1.2rem; }
         .pub-list li {
             margin-bottom: 0.85rem;
             font-size: 0.88rem;
@@ -307,9 +299,7 @@
             padding-left: 1rem;
             text-indent: -1rem;
         }
-
         .pub-list li .journal { font-style: italic; }
-
         .pub-list li .doi {
             font-family: var(--font-heading);
             font-size: 0.73rem;
@@ -327,7 +317,6 @@
             margin-bottom: 0.4rem;
         }
 
-        /* ── Open-research callout (understated) ── */
         .open-research {
             font-family: var(--font-heading);
             font-size: 0.82rem;
@@ -339,13 +328,11 @@
             border-radius: 0 2px 2px 0;
             color: var(--color-text-secondary);
         }
-
         .open-research a {
             font-weight: 500;
             color: var(--section-accent, var(--color-accent));
         }
 
-        /* ── Full record link row ── */
         .full-record {
             font-family: var(--font-heading);
             font-size: 0.82rem;
@@ -354,15 +341,10 @@
             border-top: 1px solid var(--section-accent-light, var(--color-border-light));
             display: flex;
             gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        /* ── Course list ── */
-        .course-list {
-            list-style: none;
-            padding: 0;
-            margin: 0.5rem 0 1.2rem;
-        }
-
+        .course-list { list-style: none; padding: 0; margin: 0.5rem 0 1.2rem; }
         .course-list li {
             margin-bottom: 0.55rem;
             font-size: 0.88rem;
@@ -370,43 +352,32 @@
             padding-left: 1rem;
             position: relative;
         }
-
         .course-list li::before {
             content: '\2013';
             position: absolute;
             left: 0;
             color: var(--section-accent, var(--color-text-secondary));
         }
-
         .course-list .course-title { font-style: italic; }
-
         .course-list .course-meta {
             font-family: var(--font-heading);
             font-size: 0.78rem;
             color: var(--color-text-secondary);
         }
 
-        /* ── CV snapshot ── */
         .cv-snapshot {
             margin-top: 1.2rem;
             padding-top: 1rem;
             border-top: 1px solid var(--section-accent-light, var(--color-border-light));
         }
-
         .cv-snapshot h3 { margin-top: 0; }
-
-        .cv-list {
-            list-style: none;
-            padding: 0;
-        }
-
+        .cv-list { list-style: none; padding: 0; }
         .cv-list li {
             font-size: 0.88rem;
             margin-bottom: 0.3rem;
             display: flex;
             gap: 0.6rem;
         }
-
         .cv-list .cv-year {
             font-family: var(--font-heading);
             font-size: 0.8rem;
@@ -415,28 +386,6 @@
             min-width: 6.5rem;
         }
 
-        /* ── Harbour button ── */
-        .harbour-link {
-            display: inline-block;
-            margin-top: 0.8rem;
-            font-family: var(--font-heading);
-            font-size: 0.82rem;
-            font-weight: 500;
-            padding: 0.45rem 1.1rem;
-            border: 1px solid var(--section-accent, var(--color-accent));
-            border-radius: 3px;
-            color: var(--section-accent, var(--color-accent));
-            transition: all 0.2s ease;
-        }
-
-        .harbour-link:hover,
-        .harbour-link:focus-visible {
-            background: var(--section-accent, var(--color-accent));
-            color: #fff;
-            text-decoration: none;
-        }
-
-        /* ── Footer ── */
         footer {
             max-width: var(--max-width);
             margin: 0 auto;
@@ -447,51 +396,28 @@
             color: var(--color-text-secondary);
             line-height: 1.7;
         }
+        footer a { color: var(--color-text-secondary); }
 
         /* ── Responsive ── */
         @media (max-width: 640px) {
             html { font-size: 16px; }
-
             .hero {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
                 gap: 1rem;
             }
-
             .hero-links { justify-content: center; }
-
-            .hero-photo {
-                width: 100px;
-                height: 100px;
-            }
-
-            nav .nav-inner {
-                flex-direction: column;
-                gap: 0.4rem;
-            }
-
-            nav .nav-links {
-                justify-content: center;
-                gap: 0.8rem;
-            }
-
-            .cv-list li {
-                flex-direction: column;
-                gap: 0;
-            }
-
-            .full-record {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            :root {
-                --side-padding: 1.2rem;
-            }
+            .hero-photo-container { width: 120px; height: 120px; }
+            .network-svg { top: -16px; left: -16px; width: 152px; height: 152px; }
+            .hero-photo { width: 120px; height: 120px; }
+            nav .nav-inner { flex-direction: column; gap: 0.4rem; }
+            nav .nav-links { justify-content: center; gap: 0.8rem; }
+            .cv-list li { flex-direction: column; gap: 0; }
+            .full-record { flex-direction: column; gap: 0.5rem; }
+            :root { --side-padding: 1.2rem; }
         }
 
-        /* ── Reduced motion ── */
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             *, *::before, *::after { transition-duration: 0s !important; }
@@ -507,7 +433,6 @@
             <a href="#about">About</a>
             <a href="#research">Research</a>
             <a href="#teaching">Teaching</a>
-            <a href="#open-science">Open Science</a>
         </div>
     </div>
 </nav>
@@ -515,7 +440,52 @@
 <main>
 
 <div class="hero">
-    <img class="hero-photo" src="photo.png" alt="Portrait of Ulrich Warring">
+    <div class="hero-photo-container">
+        <!-- Network topology: portrait as one node among peers -->
+        <svg class="network-svg" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Edges: central node (95,95) to peripheral nodes -->
+            <line class="network-edge" x1="95" y1="95" x2="16" y2="24"/>
+            <line class="network-edge" x1="95" y1="95" x2="58" y2="8"/>
+            <line class="network-edge" x1="95" y1="95" x2="138" y2="10"/>
+            <line class="network-edge" x1="95" y1="95" x2="174" y2="42"/>
+            <line class="network-edge" x1="95" y1="95" x2="182" y2="100"/>
+            <line class="network-edge" x1="95" y1="95" x2="168" y2="160"/>
+            <line class="network-edge" x1="95" y1="95" x2="120" y2="182"/>
+            <line class="network-edge" x1="95" y1="95" x2="62" y2="178"/>
+            <line class="network-edge" x1="95" y1="95" x2="18" y2="148"/>
+            <line class="network-edge" x1="95" y1="95" x2="6" y2="82"/>
+            <!-- Peer-to-peer edges (partial mesh) -->
+            <line class="network-edge" x1="16" y1="24" x2="58" y2="8"/>
+            <line class="network-edge" x1="58" y1="8" x2="138" y2="10"/>
+            <line class="network-edge" x1="138" y1="10" x2="174" y2="42"/>
+            <line class="network-edge" x1="174" y1="42" x2="182" y2="100"/>
+            <line class="network-edge" x1="182" y1="100" x2="168" y2="160"/>
+            <line class="network-edge" x1="168" y1="160" x2="120" y2="182"/>
+            <line class="network-edge" x1="120" y1="182" x2="62" y2="178"/>
+            <line class="network-edge" x1="62" y1="178" x2="18" y2="148"/>
+            <line class="network-edge" x1="18" y1="148" x2="6" y2="82"/>
+            <line class="network-edge" x1="6" y1="82" x2="16" y2="24"/>
+            <!-- Cross-links -->
+            <line class="network-edge" x1="16" y1="24" x2="138" y2="10"/>
+            <line class="network-edge" x1="174" y1="42" x2="168" y2="160"/>
+            <line class="network-edge" x1="6" y1="82" x2="62" y2="178"/>
+            <line class="network-edge" x1="58" y1="8" x2="182" y2="100"/>
+            <!-- Peer nodes -->
+            <circle class="network-node-fill" cx="16" cy="24" r="3.5"/>
+            <circle class="network-node-fill" cx="58" cy="8" r="2.8"/>
+            <circle class="network-node-fill" cx="138" cy="10" r="4"/>
+            <circle class="network-node-fill" cx="174" cy="42" r="3"/>
+            <circle class="network-node-fill" cx="182" cy="100" r="3.5"/>
+            <circle class="network-node-fill" cx="168" cy="160" r="4"/>
+            <circle class="network-node-fill" cx="120" cy="182" r="2.8"/>
+            <circle class="network-node-fill" cx="62" cy="178" r="3.5"/>
+            <circle class="network-node-fill" cx="18" cy="148" r="3"/>
+            <circle class="network-node-fill" cx="6" cy="82" r="3.5"/>
+            <!-- Central node ring -->
+            <circle class="network-self" cx="95" cy="95" r="75"/>
+        </svg>
+        <img class="hero-photo" src="photo.png" alt="Portrait of Ulrich Warring">
+    </div>
     <div class="hero-text">
         <h1>Ulrich Warring</h1>
         <p class="hero-tagline">Experimental physicist investigating controlled dynamics with trapped ions &mdash; spanning quantum simulation, thermodynamics, and precision sensing.</p>
@@ -524,7 +494,7 @@
             Physikalisches Institut, Albert-Ludwigs-Universit&auml;t Freiburg<br>
             <a href="https://www.qsim.uni-freiburg.de" target="_blank" rel="noopener">Quantum &amp; Atomic Physics Group (AG Sch&auml;tz)</a><br>
             Gustav-Mie-Haus, Room 04&nbsp;017<br>
-            <a href="/cdn-cgi/l/email-protection#1a6f7668737972346d7b686873747d5a6a7263697371346f7473377c687f73786f687d347e7f"><span class="__cf_email__" data-cfemail="d9acb5abb0bab1f7aeb8ababb0b7be99a9b1a0aab0b2f7acb7b0f4bfabbcb0bbacabbef7bdbc">[email&#160;protected]</span></a> &middot; <a href="tel:+497612037645">+49 761 203 7645</a>
+            ulrich.warring@physik.uni-freiburg.de &middot; <a href="tel:+497612037645">+49 761 203 7645</a>
         </div>
         <div class="hero-links">
             <a href="https://orcid.org/0000-0001-8081-9718" target="_blank" rel="noopener">ORCID</a>
@@ -532,6 +502,7 @@
             <a href="https://github.com/uwarring82" target="_blank" rel="noopener">GitHub</a>
             <a href="https://www.qsim.uni-freiburg.de/members-en/uwarring" target="_blank" rel="noopener">Group</a>
             <a href="https://uwarring.gitbook.io/ions-in-freiburg" target="_blank" rel="noopener">Harbour</a>
+            <a href="https://harbour-architecture.github.io/root/" target="_blank" rel="noopener">Harbour Root</a>
         </div>
     </div>
 </div>
@@ -546,7 +517,7 @@
 
     <p>Next came the National Institute of Standards and Technology in Boulder, Colorado. There, working with Christian Ospelkaus, Dietrich Leibfried, and colleagues, the focus was microwave-based quantum control of trapped ions. That period provided the toolbox that has defined my research in Freiburg, where the position of research associate has been home since 2013.</p>
 
-    <p>Teaching and mentoring have become increasingly important over the years. Advanced laboratory courses and seminars form the core of that work. Alongside sits the <a href="https://uwarring.gitbook.io/ions-in-freiburg" target="_blank" rel="noopener">Open-Science Harbour</a> &mdash; a documentation framework for trapped-ion research. It separates invariant physical constraints from local experimental practices: an attempt to organise knowledge without claiming final authority over truth.</p>
+    <p>Alongside research and teaching sits an ongoing effort to organise scientific knowledge transparently: the <a href="https://uwarring.gitbook.io/ions-in-freiburg" target="_blank" rel="noopener">Open-Science Harbour</a> separates invariant physical constraints from local experimental practices. It is part of a broader <a href="https://harbour-architecture.github.io/root/" target="_blank" rel="noopener">Harbour Architecture</a> &mdash; a structural vocabulary for organising knowledge under conditions of uncertainty, maintained as an open reference. This documentation practice is not a separate activity from research; it is how the research is done.</p>
 
     <div class="cv-snapshot">
         <h3>Positions</h3>
@@ -570,6 +541,7 @@
         <li>Two-dimensional ion trap architectures for quantum simulation</li>
         <li>Experimental studies of relaxation ordering and Mpemba-like effects in quantum systems</li>
         <li>Precision spectroscopy and ion-based sensing techniques</li>
+        <li>Causal geometry of comparison networks across timekeeping and metrology</li>
     </ul>
 
     <h3>Quantum Control and Simulation with Trapped Ions</h3>
@@ -589,7 +561,7 @@
 
     <p>Our most recent result shows time-dependent energy level renormalisation in the ultrastrong coupling regime &mdash; shifts of up to 15% of the bare system frequency, arising from system&ndash;environment correlations alone. Carried out with Alessandra Colla and Heinz-Peter Breuer, the work supports recent theoretical approaches to minimal-dissipation dynamics in quantum thermodynamics.</p>
 
-    <p>A related Physics Viewpoint (American Physical Society) reviews three studies asking whether a system farther from equilibrium can relax faster than one closer to it &mdash; a class of Mpemba-like effects now explored in quantum settings.</p>
+    <p>A related question &mdash; whether a system farther from equilibrium can relax faster than one closer to it &mdash; connects to an active open research programme on quantum Mpemba-like effects, carried out jointly with Alessandra Colla.</p>
 
     <p class="pub-label">Selected publications</p>
     <ul class="pub-list">
@@ -599,18 +571,33 @@
         <li>Warring, &ldquo;Exploring Quantum Mpemba Effects,&rdquo; <span class="journal">Physics (American Physical Society)</span> <strong>17</strong>, 105 (2024). <a class="doi" href="https://doi.org/10.1103/Physics.17.105" target="_blank" rel="noopener">doi:10.1103/Physics.17.105</a></li>
     </ul>
 
+    <p class="pub-label">Open research</p>
+    <div class="open-research">
+        <a href="https://deep-relaxation-ordering.github.io/q-root/" target="_blank" rel="noopener">Quantum Relaxation Ordering</a> &mdash; open research programme on Mpemba-like relaxation ordering in trapped-ion systems, with pre-registered analysis protocols (with A.&nbsp;Colla)<br><br>
+        <a href="https://strobo-travels-deep.github.io/root/" target="_blank" rel="noopener">Stroboscopic Travelling Waves</a> &mdash; claim analysis dossier for phase-stable stroboscopic measurement of trapped-ion dynamics (Hasse et al., Phys. Rev. A 2024)
+    </div>
+
     <h3>Analogue Quantum Phenomena</h3>
 
     <p>Trapped-ion systems can realise phenomena normally associated with relativistic quantum field theory. By parametrically driving a trapped ion, we demonstrated phonon pair creation from inflated quantum fluctuations &mdash; a table-top analogue of the physics in an early universe and the dynamical Casimir effect.</p>
+
+    <p>A newer thread explores the formal connection between nonlinear interferometry in quantum optics (imaging with undetected photons) and SU(1,1) interferometers realisable in trapped-ion motional modes.</p>
 
     <p class="pub-label">Selected publication</p>
     <ul class="pub-list">
         <li>Wittemer, Hakelberg, Kiefer, Schr&ouml;der, Fey, Sch&uuml;tzhold, Warring, Schaetz, &ldquo;Phonon pair creation by inflating quantum fluctuations in an ion trap,&rdquo; <span class="journal">Phys. Rev. Lett.</span> <strong>123</strong>, 180502 (2019). <a class="doi" href="https://doi.org/10.1103/PhysRevLett.123.180502" target="_blank" rel="noopener">doi:10.1103/PhysRevLett.123.180502</a></li>
     </ul>
 
-    <h3>Precision Spectroscopy</h3>
+    <p class="pub-label">Open research</p>
+    <div class="open-research">
+        <a href="https://threehouse-plus-ec.github.io/undetected-modes/" target="_blank" rel="noopener">Undetected Modes</a> &mdash; concept note on trapped-ion analogue quantum simulation of interferometric sensing in structured open environments. Open invitation to collaborate.
+    </div>
+
+    <h3>Precision Spectroscopy and Causal Metrology</h3>
 
     <p>In Heidelberg, the focus was high-resolution laser spectroscopy of the osmium anion (Os&#x207B;), leading to the first optical hyperfine structure measurement in an atomic anion. In Freiburg, this spectroscopic thread continued. Together with Govinda Clos and Martin Enderlein, we demonstrated decoherence-assisted spectroscopy of a single Mg&#x207A; ion. The key insight: controlled coupling to the environment can be turned from a nuisance into a tool for high-resolution measurement.</p>
+
+    <p>More recently, precision metrology has opened into a broader question: what are the fundamental constraints on comparing clocks across distance? The <a href="https://doi.org/10.5281/zenodo.17948436" target="_blank" rel="noopener">Causal Clock Unification Framework</a> extracts the architectural pattern shared by marine chronometers, railway time standardisation, and modern optical clock networks &mdash; a single coordination geometry that respects the causality bound on phase comparison.</p>
 
     <p class="pub-label">Selected publications</p>
     <ul class="pub-list">
@@ -619,17 +606,17 @@
         <li>Fischer, Canali, Warring, Kellerbauer, Fritzsche, &ldquo;First optical hyperfine structure measurement in an atomic anion,&rdquo; <span class="journal">Phys. Rev. Lett.</span> <strong>104</strong>, 073004 (2010). <a class="doi" href="https://doi.org/10.1103/PhysRevLett.104.073004" target="_blank" rel="noopener">doi:10.1103/PhysRevLett.104.073004</a></li>
     </ul>
 
-    <p class="pub-label">Open research repositories</p>
-    <div class="open-research">
-        <a href="https://deep-relaxation-ordering.github.io/q-root/" target="_blank" rel="noopener">Quantum Relaxation Ordering</a> &mdash; open research programme on Mpemba-like relaxation ordering in trapped-ion systems, with pre-registered analysis protocols (with A.&nbsp;Colla)<br><br>
-        <a href="https://strobo-travels-deep.github.io/root/" target="_blank" rel="noopener">Stroboscopic Travelling Waves</a> &mdash; claim analysis dossier for phase-stable stroboscopic measurement of trapped-ion dynamics (Hasse et al., Phys. Rev. A 2024)<br><br>
-        <a href="https://threehouse-plus-ec.github.io/GLHC/" target="_blank" rel="noopener">Generator Layers</a> &mdash; a falsifiable framework for assessing trans-generational creative traditions, applying the Harbour&rsquo;s coastline and breakwater architecture beyond physics
-    </div>
+    <h3>Beyond the Laboratory</h3>
+
+    <p>Some questions cross disciplinary boundaries when the same structural pattern recurs in different domains. The <a href="https://threehouse-plus-ec.github.io/GLHC/" target="_blank" rel="noopener">Generator Layers</a> dossier applies the Harbour&rsquo;s coastline and breakwater architecture to archaeology and cultural heritage: how many unbroken parent-to-child transmission links separate us from humankind&rsquo;s earliest creative traditions? The <a href="https://amazon-breakwater.github.io/root/" target="_blank" rel="noopener">Amazon Seasonal Discharge</a> dossier tests a geophysical claim about the Amazon basin using the same claim analysis protocol.</p>
+
+    <p>These are not departures from physics. They are applications of the same methodological infrastructure &mdash; falsifiable frameworks, structured claim analysis, loud failure when assumptions break &mdash; to questions that happen to lie outside the laboratory.</p>
 
     <div class="full-record">
         <a href="https://scholar.google.com/citations?user=33v2gBkAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
         <a href="https://orcid.org/0000-0001-8081-9718" target="_blank" rel="noopener">ORCID</a>
         <a href="https://www.qsim.uni-freiburg.de/publ-en" target="_blank" rel="noopener">Group publications</a>
+        <a href="https://harbour-architecture.github.io/root/" target="_blank" rel="noopener">Harbour Registry</a>
     </div>
 </section>
 
@@ -659,16 +646,12 @@
     <p>Rigorous experimental training matters. So does intellectual honesty about what we know and what we do not know. Both prepare students for research &mdash; and for responsible engagement with complex problems in any domain.</p>
 </section>
 
+</main>
 
-<section id="open-science">
-    <h2>Open Science</h2>
+<footer>
+    Ulrich Warring &middot; Physikalisches Institut &middot; Albert-Ludwigs-Universit&auml;t Freiburg<br>
+    Part of the <a href="https://harbour-architecture.github.io/root/" target="_blank" rel="noopener">Open-Science Harbour</a> ecosystem &middot; Maps, not territory.
+</footer>
 
-    <p>The <a href="https://uwarring.gitbook.io/ions-in-freiburg" target="_blank" rel="noopener">Open-Science Harbour</a> is a documentation framework for trapped-ion quantum physics research at the University of Freiburg.</p>
-
-    <p>It separates invariant constraints (physical limits, mathematical structures) from local experimental practices (equipment choices, procedures). Documents carry a scope label &mdash; Global (G) or Local (L) &mdash; and a role: coastlines define boundaries, essays provide interpretive frameworks, handbooks record operational practice.</p>
-
-    <p>The guiding principle: transparency, reproducibility, and epistemic honesty. We work with models, frameworks, and measurements. We do not know with certainty how close we come to true values &mdash; only whether our methods are internally consistent and externally testable.</p>
-
-    <a class="harbour-link" href="https://uwarring.gitbook.io/ions-in-freiburg" target="_blank" rel="noopener">Visit the Open-Science Harbour &rarr;</a>
-
-</section>
+</body>
+</html>
