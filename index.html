@@ -185,22 +185,19 @@
             fill: none;
         }
 
-        .node-far {
-            fill: var(--color-bg);
-            stroke: var(--color-border-light);
-            stroke-width: 0.5;
+        .node-blue {
+            fill: var(--pastel-blue);
+            opacity: 0.85;
         }
 
-        .node-mid {
-            fill: var(--color-bg);
-            stroke: var(--color-border);
-            stroke-width: 0.6;
+        .node-sage {
+            fill: var(--pastel-sage);
+            opacity: 0.7;
         }
 
-        .node-self {
-            fill: none;
-            stroke: var(--color-border);
-            stroke-width: 0.8;
+        .node-rose {
+            fill: var(--pastel-rose);
+            opacity: 0.6;
         }
 
         .hero-photo {
@@ -460,12 +457,12 @@
             <!-- Mid edges: self to peers -->
             <line class="edge-mid" x1="80" y1="76" x2="28" y2="178"/>
             <line class="edge-far" x1="80" y1="76" x2="140" y2="170"/>
-            <!-- Far peer node (bottom-right) -->
-            <circle class="node-far" cx="140" cy="170" r="16"/>
-            <!-- Mid peer node (bottom-left) -->
-            <circle class="node-mid" cx="28" cy="178" r="22"/>
-            <!-- Self node ring (foreground) -->
-            <circle class="node-self" cx="80" cy="76" r="60"/>
+            <!-- Far peer node (bottom-right, rose disk) -->
+            <circle class="node-rose" cx="140" cy="170" r="16"/>
+            <!-- Mid peer node (bottom-left, sage disk) -->
+            <circle class="node-sage" cx="28" cy="178" r="22"/>
+            <!-- Self node (foreground, blue disk behind photo) -->
+            <circle class="node-blue" cx="80" cy="76" r="60"/>
         </svg>
         <img class="hero-photo" src="photo.png" alt="Portrait of Ulrich Warring">
     </div>
