@@ -205,10 +205,10 @@
 
         .hero-photo {
             position: absolute;
-            top: 7px;
-            left: 7px;
-            width: 146px;
-            height: 146px;
+            top: 16px;
+            left: 20px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             clip-path: circle(50% at 50% 50%);
@@ -422,7 +422,7 @@
             .hero-links { justify-content: center; }
             .hero-photo-container { width: 130px; height: 165px; }
             .network-svg { width: 130px; height: 165px; }
-            .hero-photo { top: 5px; left: 5px; width: 120px; height: 120px; }
+            .hero-photo { top: 12px; left: 16px; width: 98px; height: 98px; }
             nav .nav-inner { flex-direction: column; gap: 0.4rem; }
             nav .nav-links { justify-content: center; gap: 0.8rem; }
             .cv-list li { flex-direction: column; gap: 0; }
@@ -456,16 +456,16 @@
         <!-- Three-node network: one foreground (self), two receding peers -->
         <svg class="network-svg" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <!-- Back edge: peer to peer (farthest plane) -->
-            <line class="edge-far" x1="24" y1="184" x2="146" y2="176"/>
+            <line class="edge-far" x1="28" y1="178" x2="140" y2="170"/>
             <!-- Mid edges: self to peers -->
-            <line class="edge-mid" x1="80" y1="80" x2="24" y2="184"/>
-            <line class="edge-far" x1="80" y1="80" x2="146" y2="176"/>
-            <!-- Far peer node (bottom-right, smaller) -->
-            <circle class="node-far" cx="146" cy="176" r="8"/>
-            <!-- Mid peer node (bottom-left, medium) -->
-            <circle class="node-mid" cx="24" cy="184" r="12"/>
-            <!-- Self node ring (foreground, largest) -->
-            <circle class="node-self" cx="80" cy="80" r="73"/>
+            <line class="edge-mid" x1="80" y1="76" x2="28" y2="178"/>
+            <line class="edge-far" x1="80" y1="76" x2="140" y2="170"/>
+            <!-- Far peer node (bottom-right) -->
+            <circle class="node-far" cx="140" cy="170" r="16"/>
+            <!-- Mid peer node (bottom-left) -->
+            <circle class="node-mid" cx="28" cy="178" r="22"/>
+            <!-- Self node ring (foreground) -->
+            <circle class="node-self" cx="80" cy="76" r="60"/>
         </svg>
         <img class="hero-photo" src="photo.png" alt="Portrait of Ulrich Warring">
     </div>
@@ -538,6 +538,11 @@
         <li>Warring et al., &ldquo;Trapped Ion Architecture for Multi-Dimensional Quantum Simulations,&rdquo; <span class="journal">Adv. Quantum Technol.</span> <strong>2020</strong>, 1900137. <a class="doi" href="https://doi.org/10.1002/qute.201900137" target="_blank" rel="noopener">doi:10.1002/qute.201900137</a></li>
     </ul>
 
+    <p class="pub-label">Open research</p>
+    <div class="open-research">
+        <a href="https://strobo-travels-deep.github.io/root/" target="_blank" rel="noopener">Stroboscopic Travelling Waves</a> &mdash; phase-stable travelling-wave fields stroboscopically matched to ion motion, enabling spatially resolved readout of motional dynamics in multi-ion arrays (Hasse et al., Phys. Rev. A 2024)
+    </div>
+
     <h3>Open Quantum Systems and Quantum Thermodynamics</h3>
 
     <p>A central theme: how strong coupling and memory effects shape the dynamics of open quantum systems. The platform is a single trapped magnesium ion coupled to an engineered bosonic environment. This allows us to probe regimes where standard weak-coupling descriptions break down.</p>
@@ -588,6 +593,11 @@
         <li>Warring et al., &ldquo;High-resolution laser spectroscopy on the negative osmium ion,&rdquo; <span class="journal">Phys. Rev. Lett.</span> <strong>102</strong>, 043001 (2009). <a class="doi" href="https://doi.org/10.1103/PhysRevLett.102.043001" target="_blank" rel="noopener">doi:10.1103/PhysRevLett.102.043001</a></li>
         <li>Fischer, Canali, Warring, Kellerbauer, Fritzsche, &ldquo;First optical hyperfine structure measurement in an atomic anion,&rdquo; <span class="journal">Phys. Rev. Lett.</span> <strong>104</strong>, 073004 (2010). <a class="doi" href="https://doi.org/10.1103/PhysRevLett.104.073004" target="_blank" rel="noopener">doi:10.1103/PhysRevLett.104.073004</a></li>
     </ul>
+
+    <p class="pub-label">Open research</p>
+    <div class="open-research">
+        <a href="https://strobo-travels-deep.github.io/root/" target="_blank" rel="noopener">Stroboscopic Travelling Waves</a> &mdash; the nonlinear coupling regime (&eta;&nbsp;&asymp;&nbsp;0.4) offers a path toward back-action-evading interrogation of trapped-ion motional states; the dossier maps the conditions under which measurement back-action can be structurally suppressed
+    </div>
 
     <h3>Beyond the Laboratory</h3>
 
