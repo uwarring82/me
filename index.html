@@ -156,59 +156,49 @@
             align-items: flex-start;
         }
 
-        /* ── Network photo container ── */
+        /* ── Photo with network badge ── */
         .hero-photo-container {
             flex-shrink: 0;
-            width: 160px;
-            height: 200px;
+            width: 130px;
+            height: 130px;
             position: relative;
         }
 
-        .network-svg {
+        .hero-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 5px;
+            object-fit: cover;
+            border: 1px solid var(--color-border-light);
+        }
+
+        .network-badge {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 160px;
-            height: 200px;
-            overflow: visible;
+            bottom: -10px;
+            right: -10px;
+            width: 48px;
+            height: 48px;
         }
 
-        .edge-far {
-            stroke: var(--color-border-light);
-            stroke-width: 0.5;
-            fill: none;
-        }
-
-        .edge-mid {
+        .badge-edge {
             stroke: var(--color-border);
-            stroke-width: 0.6;
+            stroke-width: 0.8;
             fill: none;
         }
 
         .node-blue {
             fill: var(--pastel-blue);
-            opacity: 0.35;
+            opacity: 0.5;
         }
 
         .node-sage {
             fill: var(--pastel-sage);
-            opacity: 0.35;
+            opacity: 0.5;
         }
 
         .node-rose {
             fill: var(--pastel-rose);
-            opacity: 0.35;
-        }
-
-        .hero-photo {
-            position: absolute;
-            top: 16px;
-            left: 20px;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            clip-path: circle(50% at 50% 50%);
+            opacity: 0.5;
         }
 
         .hero-text { flex: 1; min-width: 0; }
@@ -417,9 +407,9 @@
                 gap: 1rem;
             }
             .hero-links { justify-content: center; }
-            .hero-photo-container { width: 130px; height: 165px; }
-            .network-svg { width: 130px; height: 165px; }
-            .hero-photo { top: 12px; left: 16px; width: 98px; height: 98px; }
+            .hero-photo-container { width: 110px; height: 110px; }
+            .hero-photo { width: 110px; height: 110px; }
+            .network-badge { width: 40px; height: 40px; bottom: -8px; right: -8px; }
             nav .nav-inner { flex-direction: column; gap: 0.4rem; }
             nav .nav-links { justify-content: center; gap: 0.8rem; }
             .cv-list li { flex-direction: column; gap: 0; }
@@ -450,21 +440,18 @@
 
 <div class="hero">
     <div class="hero-photo-container">
-        <!-- Three-node network: one foreground (self), two receding peers -->
-        <svg class="network-svg" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Back edge: peer to peer (farthest plane) -->
-            <line class="edge-far" x1="28" y1="178" x2="140" y2="170"/>
-            <!-- Mid edges: self to peers -->
-            <line class="edge-mid" x1="80" y1="76" x2="28" y2="178"/>
-            <line class="edge-far" x1="80" y1="76" x2="140" y2="170"/>
-            <!-- Far peer node (bottom-right, rose disk) -->
-            <circle class="node-rose" cx="140" cy="170" r="16"/>
-            <!-- Mid peer node (bottom-left, sage disk) -->
-            <circle class="node-sage" cx="28" cy="178" r="22"/>
-            <!-- Self node (foreground, blue disk behind photo) -->
-            <circle class="node-blue" cx="80" cy="76" r="60"/>
-        </svg>
         <img class="hero-photo" src="photo.png" alt="Portrait of Ulrich Warring">
+        <!-- Network badge: three-node triangle -->
+        <svg class="network-badge" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Edges -->
+            <line class="badge-edge" x1="24" y1="8" x2="6" y2="40"/>
+            <line class="badge-edge" x1="24" y1="8" x2="42" y2="40"/>
+            <line class="badge-edge" x1="6" y1="40" x2="42" y2="40"/>
+            <!-- Nodes -->
+            <circle class="node-blue" cx="24" cy="8" r="6"/>
+            <circle class="node-sage" cx="6" cy="40" r="5"/>
+            <circle class="node-rose" cx="42" cy="40" r="4.5"/>
+        </svg>
     </div>
     <div class="hero-text">
         <h1>Ulrich Warring</h1>
