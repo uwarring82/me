@@ -169,36 +169,36 @@
             height: 130px;
             border-radius: 5px;
             object-fit: cover;
-            border: 1px solid var(--color-border-light);
         }
 
         .network-badge {
             position: absolute;
-            bottom: -10px;
-            right: -10px;
-            width: 48px;
-            height: 48px;
+            bottom: -14px;
+            right: -14px;
+            width: 64px;
+            height: 64px;
         }
 
         .badge-edge {
             stroke: var(--color-border);
-            stroke-width: 0.8;
+            stroke-width: 0.6;
             fill: none;
+            opacity: 0.4;
         }
 
         .node-blue {
             fill: var(--pastel-blue);
-            opacity: 0.5;
+            opacity: 0.25;
         }
 
         .node-sage {
             fill: var(--pastel-sage);
-            opacity: 0.5;
+            opacity: 0.25;
         }
 
         .node-rose {
             fill: var(--pastel-rose);
-            opacity: 0.5;
+            opacity: 0.25;
         }
 
         .hero-text { flex: 1; min-width: 0; }
@@ -409,7 +409,7 @@
             .hero-links { justify-content: center; }
             .hero-photo-container { width: 110px; height: 110px; }
             .hero-photo { width: 110px; height: 110px; }
-            .network-badge { width: 40px; height: 40px; bottom: -8px; right: -8px; }
+            .network-badge { width: 52px; height: 52px; bottom: -10px; right: -10px; }
             nav .nav-inner { flex-direction: column; gap: 0.4rem; }
             nav .nav-links { justify-content: center; gap: 0.8rem; }
             .cv-list li { flex-direction: column; gap: 0; }
@@ -442,15 +442,15 @@
     <div class="hero-photo-container">
         <img class="hero-photo" src="photo.png" alt="Portrait of Ulrich Warring">
         <!-- Network badge: three-node triangle -->
-        <svg class="network-badge" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Edges -->
-            <line class="badge-edge" x1="24" y1="8" x2="6" y2="40"/>
-            <line class="badge-edge" x1="24" y1="8" x2="42" y2="40"/>
-            <line class="badge-edge" x1="6" y1="40" x2="42" y2="40"/>
+        <svg class="network-badge" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Edges (slanted triangle) -->
+            <line class="badge-edge" x1="18" y1="6" x2="4" y2="48"/>
+            <line class="badge-edge" x1="18" y1="6" x2="56" y2="38"/>
+            <line class="badge-edge" x1="4" y1="48" x2="56" y2="38"/>
             <!-- Nodes -->
-            <circle class="node-blue" cx="24" cy="8" r="6"/>
-            <circle class="node-sage" cx="6" cy="40" r="5"/>
-            <circle class="node-rose" cx="42" cy="40" r="4.5"/>
+            <circle class="node-blue" cx="18" cy="6" r="7"/>
+            <circle class="node-sage" cx="4" cy="48" r="6"/>
+            <circle class="node-rose" cx="56" cy="38" r="5.5"/>
         </svg>
     </div>
     <div class="hero-text">
