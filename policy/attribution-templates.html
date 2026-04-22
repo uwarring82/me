@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribution Templates — Ulrich Warring</title>
+    <meta name="description" content="Enumerated notice_template values for paper-page rights notices. Machine-checked; drift is structurally prevented.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-body: 'Crimson Pro', 'Charter', Georgia, serif;
+            --font-heading: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
+            --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-accent: #2c4a6e;
+            --color-accent-light: #3b6fa0;
+            --color-bg: #fafaf8;
+            --color-border: #d4d0c8;
+            --color-border-light: #e8e5de;
+            --max-width: 720px;
+            --side-padding: 2rem;
+
+            --pastel-blue: #4a6a8a;
+            --pastel-blue-light: #b8cce0;
+            --pastel-blue-bg: #f1f5fa;
+
+            --section-accent: var(--pastel-blue);
+            --section-accent-light: var(--pastel-blue-light);
+            --section-accent-bg: var(--pastel-blue-bg);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.72;
+            font-weight: 400;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        nav .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0.65rem var(--side-padding);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        nav .nav-name {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.82rem;
+            color: var(--color-text);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1.4rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        nav .nav-links a {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.2s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.15rem;
+        }
+
+        nav .nav-links a:hover,
+        nav .nav-links a:focus-visible {
+            color: var(--pastel-blue);
+            border-bottom-color: var(--pastel-blue-light);
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--section-accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--side-padding);
+        }
+
+        .page-header {
+            padding: 3rem 0 1.5rem;
+        }
+
+        .page-header .eyebrow {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--section-accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .page-tagline {
+            font-size: 1.02rem;
+            font-weight: 300;
+            color: var(--color-text-secondary);
+            line-height: 1.55;
+            margin-bottom: 0.7rem;
+        }
+
+        .page-meta {
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        section {
+            padding: 2.2rem 0 1.6rem;
+            border-top: 2px solid var(--section-accent-light);
+        }
+        section a { color: var(--section-accent); }
+        section a:hover { text-decoration: underline; }
+
+        section h2 {
+            font-family: var(--font-heading);
+            font-size: 1.12rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.15rem;
+            color: var(--color-text);
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--section-accent-light);
+            display: inline-block;
+        }
+
+        p { margin-bottom: 0.9rem; }
+        a { color: var(--color-accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.82em;
+            background: var(--section-accent-bg);
+            padding: 0.08em 0.3em;
+            border-radius: 2px;
+        }
+
+        .template {
+            margin-bottom: 2rem;
+            padding-bottom: 1.4rem;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+        .template:last-child { border-bottom: none; }
+
+        .template-key {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--section-accent);
+            margin-bottom: 0.3rem;
+        }
+        .template-summary {
+            font-size: 0.95rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .template-meta {
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+            margin-bottom: 0.8rem;
+        }
+        .template-meta .label {
+            display: inline-block;
+            min-width: 6.5rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--color-text);
+        }
+
+        .fields-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.4rem 0 0.8rem 6.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+        }
+        .fields-list li {
+            margin-bottom: 0.2rem;
+            color: var(--color-text-secondary);
+        }
+        .fields-list .field-name { color: var(--color-text); }
+        .fields-list .field-required {
+            color: var(--section-accent);
+            font-weight: 500;
+        }
+
+        .rendered {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-style: italic;
+            background: var(--section-accent-bg);
+            border-left: 2px solid var(--section-accent-light);
+            padding: 0.75rem 1rem;
+            border-radius: 0 2px 2px 0;
+            margin: 0.6rem 0 0.4rem;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        .rendered-label {
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .note-box {
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            line-height: 1.6;
+            background: var(--section-accent-bg);
+            border-left: 2px solid var(--section-accent-light);
+            padding: 0.6rem 1rem;
+            margin: 0.8rem 0 1.2rem;
+            border-radius: 0 2px 2px 0;
+            color: var(--color-text-secondary);
+        }
+
+        footer {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem var(--side-padding) 3rem;
+            border-top: 1px solid var(--color-border-light);
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+        footer a { color: var(--color-text-secondary); }
+
+        @media (max-width: 640px) {
+            html { font-size: 16px; }
+            nav .nav-inner { flex-direction: column; gap: 0.4rem; }
+            nav .nav-links { justify-content: center; gap: 0.8rem; }
+            :root { --side-padding: 1.2rem; }
+            .fields-list { margin-left: 0; }
+            .template-meta .label { display: block; min-width: 0; margin-top: 0.4rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: 0s !important; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-name">U.W.</a>
+        <div class="nav-links">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#research">Research</a>
+            <a href="../index.html#teaching">Teaching</a>
+            <a href="./index.html">Policy</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+<header class="page-header">
+    <div class="eyebrow">Machine-checked notice templates</div>
+    <h1>Attribution Templates</h1>
+    <p class="page-tagline">Enumerated <code>notice_template</code> values referenced by each paper&rsquo;s <code>rights.json</code>. Notices are not free text; drift is structurally prevented.</p>
+    <p class="page-meta">
+        Version 0.1 &middot; Drafted 2026-04-22 &middot; Site Blueprint v0.2.1<br>
+        Parent policy: <a href="./index.html">policy/index.html</a>
+    </p>
+</header>
+
+<section id="contract">
+    <h2>Template Contract</h2>
+    <p>Each paper&rsquo;s <code>rights.json</code> specifies a <code>display.notice_template</code> key. The key must match one of the values enumerated below. The aggregator script (<code>tools/build-publications-index.py</code>) fails CI if it encounters a key not listed here. Required fields for each template are listed alongside the rendered output.</p>
+    <p>To add a new template, extend this page in the same revision as the aggregator&rsquo;s template registry. No template exists that is not surfaced here.</p>
+    <div class="note-box">
+        Renderings below show the canonical string with placeholder values in <code>{curly braces}</code>. At render time, each field is substituted from <code>rights.json</code>; the template body itself is not editable per paper.
+    </div>
+</section>
+
+<section id="templates">
+    <h2>Enumerated Templates</h2>
+
+    <div class="template">
+        <div class="template-key">summary-only</div>
+        <p class="template-summary">Tier C default: DOI link only, no manuscript content hosted. Rendered at the foot of every Tier C paper page.</p>
+        <p class="template-meta">
+            <span class="label">Used for:</span> Tier C (default)
+        </p>
+        <p class="template-meta"><span class="label">Required fields:</span></p>
+        <ul class="fields-list">
+            <li><span class="field-name field-required">doi</span> &mdash; DOI of the published work</li>
+            <li><span class="field-name field-required">journal</span> &mdash; journal name</li>
+            <li><span class="field-name field-required">date_published</span> &mdash; ISO 8601 date</li>
+        </ul>
+        <div class="rendered-label">Rendered notice</div>
+        <div class="rendered">
+            Summary only. This page does not host the article text or publisher figures. Refer to the version of record at <a href="#">doi.org/{doi}</a>, published in <em>{journal}</em> on {date_published}.
+        </div>
+    </div>
+
+    <div class="template">
+        <div class="template-key">cc-by-4.0-standard</div>
+        <p class="template-summary">Tier A rendering for articles published under CC&nbsp;BY&nbsp;4.0. Standard attribution with author, title, source, licence, and modifications fields.</p>
+        <p class="template-meta">
+            <span class="label">Used for:</span> Tier A (CC BY 4.0 articles)
+        </p>
+        <p class="template-meta"><span class="label">Required fields:</span></p>
+        <ul class="fields-list">
+            <li><span class="field-name field-required">authors</span> &mdash; full author list, final form as published</li>
+            <li><span class="field-name field-required">title</span> &mdash; article title</li>
+            <li><span class="field-name field-required">journal</span> &mdash; journal name</li>
+            <li><span class="field-name field-required">date_published</span> &mdash; ISO 8601 date</li>
+            <li><span class="field-name field-required">doi</span> &mdash; DOI of the published work</li>
+            <li><span class="field-name">modifications</span> &mdash; description of any modifications; omit if none</li>
+        </ul>
+        <div class="rendered-label">Rendered notice</div>
+        <div class="rendered">
+            {authors}. &ldquo;{title}.&rdquo; <em>{journal}</em> ({date_published}). <a href="#">doi.org/{doi}</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC&nbsp;BY&nbsp;4.0</a>. {modifications_clause}
+        </div>
+        <p class="template-meta">Where <code>modifications_clause</code> is either empty (no modifications) or <em>&ldquo;Modifications: {modifications}.&rdquo;</em></p>
+    </div>
+
+    <div class="template">
+        <div class="template-key">aps-accepted-manuscript</div>
+        <p class="template-summary">Tier B rendering for APS journals (PRL, PRA, PRX, etc.) hosting the author-accepted manuscript under APS self-archiving terms.</p>
+        <p class="template-meta">
+            <span class="label">Used for:</span> Tier B (APS journals)
+        </p>
+        <p class="template-meta"><span class="label">Required fields:</span></p>
+        <ul class="fields-list">
+            <li><span class="field-name field-required">authors</span> &mdash; full author list, final form as published</li>
+            <li><span class="field-name field-required">title</span> &mdash; article title</li>
+            <li><span class="field-name field-required">journal</span> &mdash; APS journal name</li>
+            <li><span class="field-name field-required">date_published</span> &mdash; ISO 8601 date</li>
+            <li><span class="field-name field-required">doi</span> &mdash; DOI of the published work</li>
+        </ul>
+        <div class="rendered-label">Rendered notice</div>
+        <div class="rendered">
+            Author-accepted manuscript of: {authors}, &ldquo;{title},&rdquo; <em>{journal}</em> ({date_published}). This is not the typeset version of record. The definitive version is available at <a href="#">doi.org/{doi}</a>. &copy; American Physical Society. Reuse governed by the APS Transfer of Copyright Agreement self-archiving terms.
+        </div>
+    </div>
+
+    <div class="template">
+        <div class="template-key">springer-nature-accepted-manuscript</div>
+        <p class="template-summary">Tier B rendering for Springer Nature journals (Nature, Nature Communications under subscription terms, etc.) hosting the author-accepted manuscript subject to the publisher&rsquo;s embargo.</p>
+        <p class="template-meta">
+            <span class="label">Used for:</span> Tier B (Springer Nature journals)
+        </p>
+        <p class="template-meta"><span class="label">Required fields:</span></p>
+        <ul class="fields-list">
+            <li><span class="field-name field-required">authors</span> &mdash; full author list, final form as published</li>
+            <li><span class="field-name field-required">title</span> &mdash; article title</li>
+            <li><span class="field-name field-required">journal</span> &mdash; Springer Nature journal name</li>
+            <li><span class="field-name field-required">date_published</span> &mdash; ISO 8601 date</li>
+            <li><span class="field-name field-required">doi</span> &mdash; DOI of the published work</li>
+            <li><span class="field-name field-required">embargo_expired_on</span> &mdash; ISO 8601 date the relevant embargo lifted</li>
+        </ul>
+        <div class="rendered-label">Rendered notice</div>
+        <div class="rendered">
+            Author-accepted manuscript of: {authors}, &ldquo;{title},&rdquo; <em>{journal}</em> ({date_published}). This is not the typeset version of record; the definitive version is available at <a href="#">doi.org/{doi}</a>. &copy; Springer Nature Limited. Posted under the publisher&rsquo;s author self-archiving terms; embargo expired {embargo_expired_on}.
+        </div>
+    </div>
+</section>
+
+<section id="governance">
+    <h2>Template Governance</h2>
+    <p>Adding, removing, or changing a template is a policy act. The procedure:</p>
+    <ol>
+        <li>Update this page in the same commit that extends the aggregator&rsquo;s template registry.</li>
+        <li>Record the change in the <a href="./index.html">parent policy page</a> under governance.</li>
+        <li>CI verifies that every <code>display.notice_template</code> value in committed <code>rights.json</code> files corresponds to a template on this page; a stray value fails the check.</li>
+    </ol>
+    <p>Free-text notices in <code>rights.json</code> are forbidden. Per-paper variation happens only through the field values a template consumes.</p>
+</section>
+
+</main>
+
+<footer>
+    Ulrich Warring &middot; Physikalisches Institut &middot; Albert-Ludwigs-Universit&auml;t Freiburg<br>
+    Part of the <a href="https://harbour-architecture.github.io/root/" target="_blank" rel="noopener">Open-Science Harbour</a> ecosystem &middot; Maps, not territory.
+</footer>
+
+</body>
+</html>

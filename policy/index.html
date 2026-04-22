@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy &amp; Rights — Ulrich Warring</title>
+    <meta name="description" content="Canonical policy page for uwarring82.github.io/me — content licensing, publication tiers, site-level invariants, and governance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-body: 'Crimson Pro', 'Charter', Georgia, serif;
+            --font-heading: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-accent: #2c4a6e;
+            --color-accent-light: #3b6fa0;
+            --color-bg: #fafaf8;
+            --color-border: #d4d0c8;
+            --color-border-light: #e8e5de;
+            --max-width: 720px;
+            --side-padding: 2rem;
+
+            /* Policy page adopts the sea-blue accent per blueprint §5. */
+            --pastel-blue: #4a6a8a;
+            --pastel-blue-light: #b8cce0;
+            --pastel-blue-bg: #f1f5fa;
+
+            /* Signal-red reserved for audit warnings on policy pages — not decorative. */
+            --signal-red: #a03a3a;
+            --signal-red-light: #d8b8b8;
+            --signal-red-bg: #faf0f0;
+
+            --section-accent: var(--pastel-blue);
+            --section-accent-light: var(--pastel-blue-light);
+            --section-accent-bg: var(--pastel-blue-bg);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.72;
+            font-weight: 400;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        nav .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0.65rem var(--side-padding);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        nav .nav-name {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.82rem;
+            color: var(--color-text);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1.4rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        nav .nav-links a {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.2s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.15rem;
+        }
+
+        nav .nav-links a:hover,
+        nav .nav-links a:focus-visible {
+            color: var(--pastel-blue);
+            border-bottom-color: var(--pastel-blue-light);
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--section-accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--side-padding);
+        }
+
+        .page-header {
+            padding: 3rem 0 1.5rem;
+        }
+
+        .page-header .eyebrow {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--section-accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .page-tagline {
+            font-size: 1.02rem;
+            font-weight: 300;
+            color: var(--color-text-secondary);
+            line-height: 1.55;
+            margin-bottom: 0.7rem;
+        }
+
+        .page-meta {
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        section {
+            padding: 2.2rem 0 1.6rem;
+            border-top: 2px solid var(--section-accent-light);
+        }
+        section a { color: var(--section-accent); }
+        section a:hover { text-decoration: underline; }
+
+        section h2 {
+            font-family: var(--font-heading);
+            font-size: 1.12rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.15rem;
+            color: var(--color-text);
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--section-accent-light);
+            display: inline-block;
+        }
+
+        h3 {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-top: 1.6rem;
+            margin-bottom: 0.6rem;
+            color: var(--color-text);
+        }
+
+        p { margin-bottom: 0.9rem; }
+        a { color: var(--color-accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        ol, ul { padding-left: 1.2rem; margin: 0.5rem 0 1rem; }
+        li { margin-bottom: 0.35rem; font-size: 0.95rem; }
+
+        .licence-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.8rem 0 1.4rem;
+            font-size: 0.9rem;
+        }
+        .licence-table th,
+        .licence-table td {
+            text-align: left;
+            padding: 0.55rem 0.7rem;
+            border-bottom: 1px solid var(--color-border-light);
+            vertical-align: top;
+        }
+        .licence-table th {
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--color-text-secondary);
+            border-bottom: 2px solid var(--section-accent-light);
+            background: var(--section-accent-bg);
+        }
+        .licence-table .scope {
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .tier-block {
+            background: var(--section-accent-bg);
+            border-left: 2px solid var(--section-accent-light);
+            padding: 0.8rem 1rem;
+            margin: 0.8rem 0;
+            border-radius: 0 2px 2px 0;
+        }
+        .tier-block .tier-label {
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--section-accent);
+            margin-bottom: 0.25rem;
+        }
+        .tier-block p { font-size: 0.92rem; margin-bottom: 0.5rem; }
+        .tier-block .worked-example {
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            color: var(--color-text-secondary);
+            line-height: 1.55;
+        }
+        .tier-block .worked-example .worked-label {
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+        }
+
+        .invariants-list {
+            list-style: none;
+            padding: 0;
+            counter-reset: inv;
+            margin: 0.6rem 0 1.2rem;
+        }
+        .invariants-list li {
+            counter-increment: inv;
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.55rem;
+            font-size: 0.93rem;
+            line-height: 1.6;
+        }
+        .invariants-list li::before {
+            content: "INV\00A0" counter(inv, decimal-leading-zero);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--section-accent);
+        }
+
+        .audit-warning {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            background: var(--signal-red-bg);
+            border-left: 3px solid var(--signal-red);
+            padding: 0.7rem 1rem;
+            margin: 1rem 0 1.2rem;
+            border-radius: 0 2px 2px 0;
+            color: var(--color-text);
+        }
+        .audit-warning .audit-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--signal-red);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .note-box {
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            line-height: 1.6;
+            background: var(--section-accent-bg);
+            border-left: 2px solid var(--section-accent-light);
+            padding: 0.6rem 1rem;
+            margin: 0.8rem 0 1.2rem;
+            border-radius: 0 2px 2px 0;
+            color: var(--color-text-secondary);
+        }
+
+        footer {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem var(--side-padding) 3rem;
+            border-top: 1px solid var(--color-border-light);
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+        footer a { color: var(--color-text-secondary); }
+
+        @media (max-width: 640px) {
+            html { font-size: 16px; }
+            nav .nav-inner { flex-direction: column; gap: 0.4rem; }
+            nav .nav-links { justify-content: center; gap: 0.8rem; }
+            :root { --side-padding: 1.2rem; }
+            .licence-table .scope { white-space: normal; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: 0s !important; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-name">U.W.</a>
+        <div class="nav-links">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#research">Research</a>
+            <a href="../index.html#teaching">Teaching</a>
+            <a href="./index.html" aria-current="page">Policy</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+<header class="page-header">
+    <div class="eyebrow">Canonical Coastline Document</div>
+    <h1>Policy &amp; Rights</h1>
+    <p class="page-tagline">Content licensing, publication tiers, site-level invariants, and governance for <code>uwarring82.github.io/me</code>.</p>
+    <p class="page-meta">
+        Version 0.1 &middot; Drafted 2026-04-22 &middot; Site Blueprint v0.2.1<br>
+        In any conflict between this page and the repository&rsquo;s <a href="../CONTENT-LICENCE.md">CONTENT-LICENCE.md</a>, this page governs.
+    </p>
+</header>
+
+<section id="canonical">
+    <h2>Canonical Status</h2>
+    <p>This page is the canonical policy document for the site. It states, in one place, what may be reused and under what terms, how publication pages are tiered, which site-level invariants hold, and how governance limitations are disclosed. The repository file <a href="../CONTENT-LICENCE.md">CONTENT-LICENCE.md</a> mirrors the licence portion of this page; where the two diverge, this HTML governs.</p>
+    <p>The site is a <em>public-facing Coastline</em>: it documents invariant facts about research, teaching, and affiliations. Interpretive prose around each paper is <em>Sail</em> content, free to evolve. Bibliographic facts and rights metadata are locks; framings and summaries are keys.</p>
+</section>
+
+<section id="licences">
+    <h2>Content Licence Regime</h2>
+    <p>The site declares four distinct regimes. The existing repository <code>LICENSE</code> file (MIT) continues to govern code only.</p>
+
+    <table class="licence-table">
+        <thead>
+            <tr>
+                <th>Scope</th>
+                <th>Licence / regime</th>
+                <th>Attribution requirement</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="scope">Code</td>
+                <td><a href="../LICENSE">MIT</a></td>
+                <td>Copyright notice preserved.</td>
+            </tr>
+            <tr>
+                <td class="scope">Prose / written content</td>
+                <td><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></td>
+                <td>Attribution to <em>Ulrich Warring, uwarring82.github.io/me</em>, link to licence, and share-alike on derivatives.</td>
+            </tr>
+            <tr>
+                <td class="scope">Portrait <code>photo.png</code></td>
+                <td>All rights reserved</td>
+                <td>No reuse without written permission. Personality rights and copyright both protected.</td>
+            </tr>
+            <tr>
+                <td class="scope">Redrawn schematics on publication pages</td>
+                <td><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></td>
+                <td>Attribution to U.&nbsp;Warring; per-figure caption states licence inline.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note-box">
+        Third-party content (publisher-typeset articles, figures originating elsewhere) is governed by the rights of the originating work &mdash; not by any regime above. No such content is mirrored on this site; see <a href="#invariants">INV&nbsp;01</a>.
+    </div>
+</section>
+
+<section id="tiers">
+    <h2>Publication Tier Definitions</h2>
+    <p>Every paper page defaults to <strong>Tier C</strong>. Tier A and Tier B are per-paper exceptions, opted into individually with explicit rights verification. Permission is not obligation &mdash; a paper that <em>could</em> be hosted at Tier A may be hosted at Tier C for editorial restraint.</p>
+
+    <div class="tier-block">
+        <div class="tier-label">Tier C &mdash; Summary only (default)</div>
+        <p>Author summary in the site&rsquo;s voice, DOI as primary link, optional arXiv link, optional one redrawn website schematic clearly labelled <em>&ldquo;Website figure, not from the article.&rdquo;</em> No manuscript or publisher content hosted.</p>
+        <p class="worked-example"><span class="worked-label">Worked example.</span> A 2018 PRA paper under a subscription licence: hosted as a Tier C summary with DOI and arXiv link; an explanatory schematic redrawn by the author is marked as a website figure.</p>
+    </div>
+
+    <div class="tier-block">
+        <div class="tier-label">Tier B &mdash; Accepted manuscript (opt-in)</div>
+        <p>Author-accepted manuscript hosted as document or HTML conversion, with a banner stating <em>&ldquo;Author-accepted manuscript. Not the typeset version of record. Refer to the DOI for the published article.&rdquo;</em> Author-owned figure panels only, after panel-by-panel verification.</p>
+        <p>Preconditions: (i) publisher self-archiving rules permit; (ii) any embargo has expired; (iii) co-author consultation is logged with outcome <code>approved</code> (see <a href="#coauthors">co-author courtesy</a> and the 14-day fallback).</p>
+        <p class="worked-example"><span class="worked-label">Worked example.</span> A 2014 PRL: after the journal&rsquo;s self-archiving terms are confirmed and a co-author-consultation record is filed, the accepted manuscript may be hosted. If any figure panel originates from a third party, that panel is redrawn or omitted.</p>
+    </div>
+
+    <div class="tier-block">
+        <div class="tier-label">Tier A &mdash; Version of record under open licence (opt-in)</div>
+        <p>Full text and all figures with <code>can_host: true</code>. Banner carries the attribution string required by the licence (e.g. CC&nbsp;BY&nbsp;4.0). Third-party panels handled separately via <code>discriminant_action</code> in the paper&rsquo;s <code>rights.json</code>.</p>
+        <p class="worked-example"><span class="worked-label">Worked example.</span> The 2025 Nature Communications paper, published CC&nbsp;BY&nbsp;4.0: after panel-by-panel figure-rights verification, the version of record is hosted with the CC&nbsp;BY attribution string inline; any embedded third-party element identified during verification is resolved via its own <code>discriminant_action</code> before promotion to Tier A.</p>
+    </div>
+</section>
+
+<section id="invariants">
+    <h2>Site-Level Invariants</h2>
+    <p>These constraints hold across every page. They are never silently relaxed; any change requires an explicit blueprint revision and is reflected here before implementation.</p>
+
+    <ol class="invariants-list">
+        <li><strong>No publisher-generated HTML is mirrored.</strong> Hosted text must be one of: (a)&nbsp;author-written summary, (b)&nbsp;author-accepted manuscript under self-archiving rules, (c)&nbsp;lawfully reusable open-access full text prepared for this site under its licence.</li>
+        <li><strong>Figures are evaluated panel by panel.</strong> A document-level licence does not automatically clear embedded third-party material.</li>
+        <li><strong>No third-party tracking, badges, or metrics widgets.</strong> No external data flows beyond direct DOI, arXiv, ORCID, or Scholar links the reader chooses to follow.</li>
+        <li><strong>Permission is not obligation.</strong> A paper that could be hosted at Tier A may be hosted at Tier C for editorial restraint.</li>
+        <li><strong>Every <code>licence: &ldquo;unverified&rdquo;</code> carries a <code>discriminant_action</code>.</strong> No silent ambiguities; CI enforces this on the publication registry.</li>
+        <li><strong><code>policy/index.html</code> is canonical</strong> for any rights, licence, or governance question. Repository files mirror; this page governs in conflict.</li>
+        <li><strong><code>publications.json</code> is a generated artefact.</strong> Hand-editing it is forbidden; CI enforces idempotence against the source <code>rights.json</code> files.</li>
+    </ol>
+</section>
+
+<section id="figures">
+    <h2>Figure Rights</h2>
+    <p>Figures are evaluated panel by panel. A paper whose text is available under an open licence does not thereby clear each embedded figure or panel &mdash; third-party material retains its own rights, and the paper&rsquo;s <code>rights.json</code> records them per figure, with a <code>can_host</code> decision per panel. Where clearance is pending, a <code>discriminant_action</code> states how the ambiguity will be resolved (publisher portal response, redraw, omission) and by when.</p>
+</section>
+
+<section id="coauthors">
+    <h2>Co-author Courtesy</h2>
+    <p>For multi-author works, co-author notification precedes any manuscript-tier (Tier B or A) hosting on this site. This is a <strong>site-policy precondition</strong>. It is not a claim that consultation is generally legally required; it is how this site chooses to conduct itself.</p>
+    <p><strong>14-day fallback.</strong> For Tier B, <code>site_policy.coauthors.lead_author_consulted: true</code> with <code>site_policy.coauthors.consultation_outcome: &ldquo;approved&rdquo;</code> is required. If consultation receives no response within 14 calendar days, the paper defaults to Tier C, <code>site_policy.coauthors.fallback_applied: true</code> is recorded, and the deferral is documented in <code>audit.auditor_note</code>. This prevents Tier B from being indefinitely blocked by unanswered email.</p>
+</section>
+
+<section id="embargoes">
+    <h2>Embargoes</h2>
+    <p>Embargoes are tracked separately for each text layer: preprint, accepted manuscript, and version of record. A paper may be free of preprint embargo while the accepted manuscript is still embargoed; the three are independent decisions. Each paper&rsquo;s <code>rights.embargo_until</code> records the binding date for the tier under consideration; where a tier promotion awaits an embargo lift, the <code>discriminant_action</code> states the lift date.</p>
+</section>
+
+<section id="governance">
+    <h2>Governance: Present Limitations</h2>
+    <p>This site applies audit-first to its own audit system. The following limitations are declared rather than disguised:</p>
+    <ul>
+        <li>A single auditor (U.&nbsp;Warring).</li>
+        <li>No second pair of eyes on rights decisions.</li>
+        <li>An annual audit cadence.</li>
+        <li>No formal escalation path if the auditor is unavailable.</li>
+    </ul>
+    <p>These are acceptable at the present scale and are surfaced here so that readers can calibrate trust accordingly. A change to any of them requires an explicit blueprint revision reflected on this page.</p>
+
+    <div class="audit-warning">
+        <span class="audit-label">Audit notice</span>
+        Where a rights decision on this site depends on a single auditor&rsquo;s judgement and that judgement is contested, the contested item is demoted to Tier C pending resolution. In all cases, the DOI remains the authoritative reference to the published work; this site does not claim authority over the underlying research record.
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact for Rights Queries</h2>
+    <p>Rights queries, take-down requests, and co-author objections: <a href="mailto:ulrich.warring@physik.uni-freiburg.de">ulrich.warring@physik.uni-freiburg.de</a>. A written acknowledgement is sent within 14 calendar days. Tier demotions requested in good faith are applied promptly.</p>
+    <p>See also: <a href="./attribution-templates.html">attribution-templates.html</a> for the allowed <code>notice_template</code> values referenced by each paper&rsquo;s <code>rights.json</code>.</p>
+</section>
+
+</main>
+
+<footer>
+    Ulrich Warring &middot; Physikalisches Institut &middot; Albert-Ludwigs-Universit&auml;t Freiburg<br>
+    Part of the <a href="https://harbour-architecture.github.io/root/" target="_blank" rel="noopener">Open-Science Harbour</a> ecosystem &middot; Maps, not territory.
+</footer>
+
+</body>
+</html>
