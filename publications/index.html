@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications — Ulrich Warring</title>
+    <meta name="description" content="Registry of publications with author summaries and rights metadata. Filter by theme and tier.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-body: 'Crimson Pro', 'Charter', Georgia, serif;
+            --font-heading: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-accent: #2c4a6e;
+            --color-bg: #fafaf8;
+            --color-border: #d4d0c8;
+            --color-border-light: #e8e5de;
+            --max-width: 720px;
+            --side-padding: 2rem;
+
+            --pastel-sage: #5e8a6b;
+            --pastel-sage-light: #bdd4c4;
+            --pastel-sage-bg: #f3f8f5;
+
+            --section-accent: var(--pastel-sage);
+            --section-accent-light: var(--pastel-sage-light);
+            --section-accent-bg: var(--pastel-sage-bg);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.72; font-weight: 400; }
+
+        nav { position: sticky; top: 0; z-index: 100; background: var(--color-bg); border-bottom: 1px solid var(--color-border-light); }
+        nav .nav-inner { max-width: var(--max-width); margin: 0 auto; padding: 0.65rem var(--side-padding); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+        nav .nav-name { font-family: var(--font-heading); font-weight: 600; font-size: 0.82rem; color: var(--color-text); text-decoration: none; white-space: nowrap; }
+        nav .nav-links { display: flex; gap: 1.4rem; flex-wrap: wrap; justify-content: flex-end; }
+        nav .nav-links a { font-family: var(--font-heading); font-size: 0.75rem; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.01em; border-bottom: 2px solid transparent; padding-bottom: 0.15rem; transition: color 0.2s ease; }
+        nav .nav-links a:hover, nav .nav-links a:focus-visible { color: var(--section-accent); border-bottom-color: var(--section-accent-light); }
+
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--section-accent); outline-offset: 2px; border-radius: 2px; }
+
+        main { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--side-padding); }
+
+        .page-header { padding: 2.8rem 0 1.4rem; }
+        .page-header .eyebrow { font-family: var(--font-heading); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--section-accent); margin-bottom: 0.6rem; }
+        .page-header h1 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.5rem; }
+        .page-header .tagline { font-size: 1.02rem; font-weight: 300; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 0.6rem; }
+        .page-header .meta-line { font-family: var(--font-heading); font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.7; }
+        .page-header a { color: var(--color-accent); text-decoration: none; }
+        .page-header a:hover { text-decoration: underline; }
+
+        .filter-bar { padding: 1rem 0 1.2rem; border-top: 2px solid var(--section-accent-light); border-bottom: 1px solid var(--color-border-light); display: flex; flex-direction: column; gap: 0.8rem; }
+        .filter-row { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+        .filter-label { font-family: var(--font-heading); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary); min-width: 3.4rem; }
+        .chip { font-family: var(--font-heading); font-size: 0.76rem; font-weight: 500; padding: 0.25rem 0.6rem; border: 1px solid var(--color-border); border-radius: 3px; background: transparent; color: var(--color-text-secondary); cursor: pointer; transition: all 0.15s ease; letter-spacing: 0.01em; }
+        .chip:hover { border-color: var(--section-accent-light); color: var(--section-accent); }
+        .chip.active { background: var(--section-accent); color: #fff; border-color: var(--section-accent); }
+        .filter-status { font-family: var(--font-heading); font-size: 0.74rem; color: var(--color-text-secondary); margin-top: 0.2rem; }
+
+        .entries { padding: 1.2rem 0 0; }
+        .entries-empty { font-family: var(--font-heading); font-size: 0.88rem; color: var(--color-text-secondary); padding: 1rem 0; }
+
+        .entry { padding: 1.2rem 0; border-bottom: 1px solid var(--color-border-light); }
+        .entry:last-child { border-bottom: none; }
+        .entry h3 { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.4rem; }
+        .entry h3 a { color: var(--color-text); text-decoration: none; }
+        .entry h3 a:hover { color: var(--section-accent); }
+        .entry .entry-meta { font-family: var(--font-heading); font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 0.4rem; }
+        .entry .entry-meta .tier-badge { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--section-accent); background: var(--section-accent-bg); padding: 0.12rem 0.4rem; border: 1px solid var(--section-accent-light); border-radius: 2px; margin-left: 0.3rem; }
+        .entry .entry-meta .doi-link { color: var(--color-accent); text-decoration: none; }
+        .entry .entry-meta .doi-link:hover { text-decoration: underline; }
+        .entry .theme-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.4rem; }
+        .entry .theme-tags .tag { font-family: var(--font-heading); font-size: 0.7rem; color: var(--color-text-secondary); background: var(--section-accent-bg); padding: 0.1rem 0.45rem; border-radius: 2px; letter-spacing: 0.02em; }
+
+        .about-note { padding: 1.8rem 0 1.2rem; border-top: 2px solid var(--section-accent-light); margin-top: 1.5rem; font-family: var(--font-heading); font-size: 0.82rem; line-height: 1.6; background: var(--section-accent-bg); padding: 1rem 1.1rem; border-left: 2px solid var(--section-accent-light); border-radius: 0 2px 2px 0; color: var(--color-text-secondary); }
+        .about-note a { color: var(--section-accent); }
+
+        footer { max-width: var(--max-width); margin: 0 auto; padding: 2rem var(--side-padding) 3rem; border-top: 1px solid var(--color-border-light); font-family: var(--font-heading); font-size: 0.72rem; color: var(--color-text-secondary); line-height: 1.7; margin-top: 2rem; }
+        footer a { color: var(--color-text-secondary); }
+
+        @media (max-width: 640px) {
+            html { font-size: 16px; }
+            nav .nav-inner { flex-direction: column; gap: 0.4rem; }
+            nav .nav-links { justify-content: center; gap: 0.8rem; }
+            :root { --side-padding: 1.2rem; }
+            .filter-label { min-width: 0; display: block; width: 100%; margin-bottom: 0.1rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: 0s !important; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-name">U.W.</a>
+        <div class="nav-links">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#research">Research</a>
+            <a href="./index.html" aria-current="page">Publications</a>
+            <a href="../index.html#teaching">Teaching</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+<header class="page-header">
+    <div class="eyebrow">Registry &middot; Summary-first</div>
+    <h1>Publications</h1>
+    <p class="tagline">Author summaries of selected publications with per-paper rights metadata. Every page defaults to Tier&nbsp;C (summary only); Tier A and B are per-paper opt-ins.</p>
+    <p class="meta-line">
+        See also the full record on <a href="https://scholar.google.com/citations?user=33v2gBkAAAAJ" target="_blank" rel="noopener">Google Scholar</a>, <a href="https://orcid.org/0000-0001-8081-9718" target="_blank" rel="noopener">ORCID</a>, and the <a href="https://www.qsim.uni-freiburg.de/publ-en" target="_blank" rel="noopener">group publications list</a>.<br>
+        Tier definitions, site-level invariants, and rights notices: <a href="../policy/index.html">Policy &amp; Rights</a>.
+    </p>
+</header>
+
+<section class="filter-bar" aria-label="Filters">
+    <div class="filter-row" id="tier-filter">
+        <span class="filter-label">Tier</span>
+        <button class="chip active" data-tier="all" type="button">All</button>
+        <button class="chip" data-tier="A" type="button">A</button>
+        <button class="chip" data-tier="B" type="button">B</button>
+        <button class="chip" data-tier="C" type="button">C</button>
+    </div>
+    <div class="filter-row" id="theme-filter">
+        <span class="filter-label">Theme</span>
+        <!-- populated by JS -->
+    </div>
+    <div class="filter-status" id="filter-status" aria-live="polite"></div>
+</section>
+
+<div class="entries" id="entries" aria-live="polite">
+    <p class="entries-empty" id="entries-empty" hidden>No publications match the current filters.</p>
+</div>
+
+<aside class="about-note">
+    Each entry links to an author-written summary and a per-paper rights record. Tier&nbsp;C is the default for editorial restraint (<a href="../policy/index.html#invariants">INV&nbsp;04</a>); tier promotion is a per-paper decision, not an automatic consequence of licence terms.
+    The registry index (<a href="./data/publications.json">publications.json</a>) is a generated artefact &mdash; do not hand-edit; regenerate with <code>tools/build-publications-index.py</code>.
+</aside>
+
+</main>
+
+<footer>
+    Ulrich Warring &middot; Physikalisches Institut &middot; Albert-Ludwigs-Universit&auml;t Freiburg<br>
+    Part of the <a href="https://harbour-architecture.github.io/root/" target="_blank" rel="noopener">Open-Science Harbour</a> ecosystem &middot; Maps, not territory.
+</footer>
+
+<script>
+(() => {
+    const STATE = { tier: 'all', theme: null, entries: [] };
+
+    const $entries = document.getElementById('entries');
+    const $empty = document.getElementById('entries-empty');
+    const $status = document.getElementById('filter-status');
+    const $themeFilter = document.getElementById('theme-filter');
+
+    function year(isoDate) {
+        return isoDate ? isoDate.slice(0, 4) : '';
+    }
+
+    function esc(s) {
+        return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;' }[c]));
+    }
+
+    function renderEntry(e) {
+        const tagsHtml = (e.themes || []).map(t =>
+            `<span class="tag" data-theme="${esc(t)}">${esc(t)}</span>`
+        ).join('');
+        return `
+            <article class="entry" data-tier="${esc(e.tier)}" data-themes="${esc((e.themes || []).join('|'))}">
+                <h3><a href="./papers/${esc(e.slug)}/">${esc(e.title)}</a></h3>
+                <p class="entry-meta">
+                    <em>${esc(e.journal)}</em> (${year(e.date_published)})
+                    &middot; <a class="doi-link" href="https://doi.org/${esc(e.doi)}" target="_blank" rel="noopener">DOI: ${esc(e.doi)}</a>
+                    <span class="tier-badge">Tier ${esc(e.tier)}</span>
+                </p>
+                <div class="theme-tags">${tagsHtml}</div>
+            </article>
+        `;
+    }
+
+    function buildThemeChips(entries) {
+        const themes = new Set();
+        entries.forEach(e => (e.themes || []).forEach(t => themes.add(t)));
+        const sorted = [...themes].sort();
+        const chips = [`<button class="chip active" data-theme="all" type="button">All</button>`]
+            .concat(sorted.map(t =>
+                `<button class="chip" data-theme="${esc(t)}" type="button">${esc(t)}</button>`
+            ));
+        $themeFilter.insertAdjacentHTML('beforeend', chips.join(''));
+    }
+
+    function applyFilters() {
+        const filtered = STATE.entries.filter(e =>
+            (STATE.tier === 'all' || e.tier === STATE.tier) &&
+            (!STATE.theme || (e.themes || []).includes(STATE.theme))
+        );
+        $entries.innerHTML = filtered.map(renderEntry).join('') + $empty.outerHTML;
+        const emptyEl = document.getElementById('entries-empty');
+        emptyEl.hidden = filtered.length > 0;
+        $status.textContent = `${filtered.length} of ${STATE.entries.length} publication${STATE.entries.length === 1 ? '' : 's'}`;
+    }
+
+    function wireFilterChips(containerId, key) {
+        const container = document.getElementById(containerId);
+        container.addEventListener('click', (ev) => {
+            const btn = ev.target.closest('.chip');
+            if (!btn) return;
+            const value = btn.getAttribute('data-' + key);
+            STATE[key] = (value === 'all') ? (key === 'theme' ? null : 'all') : value;
+            container.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === btn));
+            applyFilters();
+        });
+    }
+
+    async function load() {
+        try {
+            const resp = await fetch('./data/publications.json', { cache: 'no-store' });
+            if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+            const data = await resp.json();
+            STATE.entries = Array.isArray(data.entries) ? data.entries : [];
+            buildThemeChips(STATE.entries);
+            wireFilterChips('tier-filter', 'tier');
+            wireFilterChips('theme-filter', 'theme');
+            applyFilters();
+        } catch (err) {
+            $entries.innerHTML = `<p class="entries-empty">Could not load the registry (${esc(err.message)}). Open this page over HTTP (GitHub Pages or a local server) — fetch is blocked on <code>file://</code>.</p>`;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', load);
+})();
+</script>
+
+</body>
+</html>

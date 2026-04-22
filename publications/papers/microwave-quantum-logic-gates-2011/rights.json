@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.2",
+  "doi": "10.1038/nature10290",
+  "arxiv_id": null,
+  "canonical_url": "https://doi.org/10.1038/nature10290",
+  "date_published": "2011-08-11",
+  "title": "Microwave quantum logic gates for trapped ions",
+  "journal": "Nature",
+  "themes": ["quantum-control", "microwave-gates", "trapped-ions"],
+
+  "rights": {
+    "text_version_allowed": "unverified",
+    "licence": "unverified",
+    "embargo_until": null,
+    "third_party_material_present": false,
+    "source_of_rights": {
+      "type": "publisher-policy-pending-audit",
+      "url": "https://www.nature.com/nature-portfolio/editorial-policies/self-archiving-and-license-to-publish",
+      "checked_on": "2026-04-22"
+    },
+    "figures": [],
+    "discriminant_action": "Tier C summary does not host article text or figures, so hosting is not gated by the publisher audit. Full audit of Nature author self-archiving terms (pre-Nature-Portfolio era, 2011 imprint) deferred to annual audit or to any future tier-promotion review; if promotion to Tier B is ever contemplated, this field must be resolved first."
+  },
+
+  "display": {
+    "tier": "C",
+    "host_manuscript": false,
+    "show_figures": false,
+    "display_status": "live",
+    "notice_template": "summary-only"
+  },
+
+  "site_policy": {
+    "coauthors": {
+      "lead_author_consulted": false,
+      "consultation_outcome": "not_required_tier_c",
+      "fallback_applied": false
+    }
+  },
+
+  "audit": {
+    "last_audit": "2026-04-22",
+    "auditor": "U.W.",
+    "auditor_note": "Tier C summary-first per Phase 1. Paper is from the NIST era under the Ospelkaus/Leibfried collaboration. Exact publication day recorded (Nature 476, online 2011-08-11)."
+  }
+}

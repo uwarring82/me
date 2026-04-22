@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.2",
+  "doi": "10.1038/s41467-025-57840-4",
+  "arxiv_id": null,
+  "canonical_url": "https://doi.org/10.1038/s41467-025-57840-4",
+  "date_published": "2025-03-12",
+  "title": "Observing time-dependent energy level renormalisation in an ultrastrongly coupled open system",
+  "journal": "Nature Communications",
+  "themes": ["open-quantum-systems", "quantum-thermodynamics", "ultrastrong-coupling", "trapped-ions"],
+
+  "rights": {
+    "text_version_allowed": "version_of_record",
+    "licence": "CC-BY-4.0",
+    "embargo_until": null,
+    "third_party_material_present": false,
+    "source_of_rights": {
+      "type": "publisher-licence",
+      "url": "https://www.nature.com/articles/s41467-025-57840-4",
+      "checked_on": "2026-04-22"
+    },
+    "figures": []
+  },
+
+  "display": {
+    "tier": "C",
+    "host_manuscript": false,
+    "show_figures": false,
+    "display_status": "live",
+    "notice_template": "summary-only"
+  },
+
+  "site_policy": {
+    "coauthors": {
+      "lead_author_consulted": false,
+      "consultation_outcome": "not_required_tier_c",
+      "fallback_applied": false
+    }
+  },
+
+  "audit": {
+    "last_audit": "2026-04-22",
+    "auditor": "U.W.",
+    "auditor_note": "Tier C summary-first per Phase 1. Rights record is accurate (Nature Communications 2025 defaults to CC BY 4.0); paper could be promoted to Tier A after panel-by-panel figure-rights verification, but editorial restraint (INV 04) keeps it at Tier C for now."
+  }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microwave quantum logic gates for trapped ions — Publications — Ulrich Warring</title>
+    <meta name="description" content="Tier C author summary of Ospelkaus, Warring et al., 'Microwave quantum logic gates for trapped ions,' Nature 476, 181–184 (2011).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-body: 'Crimson Pro', 'Charter', Georgia, serif;
+            --font-heading: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-accent: #2c4a6e;
+            --color-bg: #fafaf8;
+            --color-border: #d4d0c8;
+            --color-border-light: #e8e5de;
+            --max-width: 720px;
+            --side-padding: 2rem;
+
+            --pastel-sage: #5e8a6b;
+            --pastel-sage-light: #bdd4c4;
+            --pastel-sage-bg: #f3f8f5;
+
+            --section-accent: var(--pastel-sage);
+            --section-accent-light: var(--pastel-sage-light);
+            --section-accent-bg: var(--pastel-sage-bg);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.72; font-weight: 400; }
+
+        nav { position: sticky; top: 0; z-index: 100; background: var(--color-bg); border-bottom: 1px solid var(--color-border-light); }
+        nav .nav-inner { max-width: var(--max-width); margin: 0 auto; padding: 0.65rem var(--side-padding); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+        nav .nav-name { font-family: var(--font-heading); font-weight: 600; font-size: 0.82rem; color: var(--color-text); text-decoration: none; white-space: nowrap; }
+        nav .nav-links { display: flex; gap: 1.4rem; flex-wrap: wrap; justify-content: flex-end; }
+        nav .nav-links a { font-family: var(--font-heading); font-size: 0.75rem; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.01em; border-bottom: 2px solid transparent; padding-bottom: 0.15rem; transition: color 0.2s ease; }
+        nav .nav-links a:hover, nav .nav-links a:focus-visible { color: var(--section-accent); border-bottom-color: var(--section-accent-light); }
+
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--section-accent); outline-offset: 2px; border-radius: 2px; }
+
+        main { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--side-padding); }
+
+        .paper-header { padding: 2.4rem 0 1.5rem; }
+        .back-link { font-family: var(--font-heading); font-size: 0.76rem; color: var(--color-text-secondary); text-decoration: none; display: inline-block; margin-bottom: 1rem; }
+        .back-link:hover { color: var(--section-accent); }
+
+        .tier-badge { display: inline-block; font-family: var(--font-heading); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--section-accent); background: var(--section-accent-bg); padding: 0.25rem 0.6rem; border: 1px solid var(--section-accent-light); border-radius: 2px; margin-bottom: 0.8rem; }
+
+        .paper-header h1 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; margin-bottom: 0.7rem; }
+
+        .authors { font-size: 0.95rem; color: var(--color-text); margin-bottom: 0.3rem; }
+        .authors .me { font-weight: 600; }
+        .authors .orcid { font-family: var(--font-heading); font-size: 0.7rem; color: var(--section-accent); margin-left: 0.2rem; border: 1px solid var(--section-accent-light); padding: 0.02em 0.35em; border-radius: 2px; text-decoration: none; vertical-align: 0.05em; }
+
+        .meta { font-family: var(--font-heading); font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 0.9rem; }
+        .meta a { color: var(--color-accent); text-decoration: none; }
+        .meta a:hover { text-decoration: underline; }
+
+        .action-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.4rem; }
+        .action-links a { font-family: var(--font-heading); font-size: 0.75rem; font-weight: 500; padding: 0.35rem 0.75rem; border-radius: 3px; text-decoration: none; border: 1px solid var(--color-border); color: var(--color-accent); transition: all 0.2s ease; }
+        .action-links a:hover, .action-links a:focus-visible { background: var(--section-accent); color: #fff; border-color: var(--section-accent); }
+
+        section { padding: 1.8rem 0 1rem; border-top: 2px solid var(--section-accent-light); }
+        section h2 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 0.9rem; color: var(--color-text); padding-bottom: 0.35rem; border-bottom: 2px solid var(--section-accent-light); display: inline-block; }
+        section a { color: var(--section-accent); text-decoration: none; }
+        section a:hover { text-decoration: underline; }
+        p { margin-bottom: 0.9rem; }
+
+        .related-list { list-style: none; padding: 0; margin: 0.6rem 0 0.2rem; }
+        .related-list li { font-size: 0.93rem; margin-bottom: 0.55rem; padding-left: 1rem; position: relative; line-height: 1.55; }
+        .related-list li::before { content: '\2013'; position: absolute; left: 0; color: var(--section-accent); }
+
+        .rights-notice { margin-top: 2rem; padding: 1.1rem 1.2rem; background: var(--section-accent-bg); border-left: 3px solid var(--section-accent); border-radius: 0 2px 2px 0; }
+        .rights-notice .rights-label { font-family: var(--font-heading); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--section-accent); margin-bottom: 0.45rem; }
+        .rights-notice p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.5rem; font-style: italic; }
+        .rights-notice .audit-meta { font-family: var(--font-heading); font-size: 0.72rem; color: var(--color-text-secondary); font-style: normal; margin-bottom: 0; line-height: 1.6; }
+        .rights-notice a { color: var(--section-accent); }
+
+        footer { max-width: var(--max-width); margin: 0 auto; padding: 2rem var(--side-padding) 3rem; border-top: 1px solid var(--color-border-light); font-family: var(--font-heading); font-size: 0.72rem; color: var(--color-text-secondary); line-height: 1.7; }
+        footer a { color: var(--color-text-secondary); }
+
+        @media (max-width: 640px) {
+            html { font-size: 16px; }
+            nav .nav-inner { flex-direction: column; gap: 0.4rem; }
+            nav .nav-links { justify-content: center; gap: 0.8rem; }
+            :root { --side-padding: 1.2rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: 0s !important; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="../../../index.html" class="nav-name">U.W.</a>
+        <div class="nav-links">
+            <a href="../../../index.html#about">About</a>
+            <a href="../../../index.html#research">Research</a>
+            <a href="../../index.html">Publications</a>
+            <a href="../../../index.html#teaching">Teaching</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+<header class="paper-header">
+    <a class="back-link" href="../../index.html">&larr; All publications</a>
+    <div class="tier-badge">Tier C &middot; Summary only</div>
+    <h1>Microwave quantum logic gates for trapped ions</h1>
+    <p class="authors">C.&nbsp;Ospelkaus, <span class="me">U.&nbsp;Warring</span><a class="orcid" href="https://orcid.org/0000-0001-8081-9718" target="_blank" rel="noopener" aria-label="ORCID of U. Warring">ORCID</a>, Y.&nbsp;Colombe, K.&nbsp;R.&nbsp;Brown, J.&nbsp;M.&nbsp;Amini, D.&nbsp;Leibfried, D.&nbsp;J.&nbsp;Wineland</p>
+    <p class="meta"><em>Nature</em> <strong>476</strong>, 181&ndash;184 (2011) &middot; Published 11 August 2011 &middot; <a href="https://doi.org/10.1038/nature10290" target="_blank" rel="noopener">DOI: 10.1038/nature10290</a></p>
+    <div class="action-links">
+        <a href="https://doi.org/10.1038/nature10290" target="_blank" rel="noopener">Read at publisher &rarr;</a>
+    </div>
+</header>
+
+<section>
+    <h2>Author summary</h2>
+    <p>Can scalable trapped-ion quantum logic be built without tightly focused laser beams? Laser-based gates on trapped ions are experimentally powerful but become harder to scale as the number of ions grows: each gate requires a beam delivered to a specific ion with high fidelity, and cross-talk, phase stability, and wavefront errors all compound. We demonstrated at the National Institute of Standards and Technology that engineered microwave near-field gradients &mdash; produced by currents flowing in electrodes of the ion trap itself &mdash; can drive single-qubit rotations and two-qubit entangling gates on individually addressed ions. Microwaves are mature, stable, and routed by geometry rather than by optics. The proof-of-principle Bell-state fidelity matched contemporary laser-based approaches. The paper opened a line of trapped-ion architecture development in which the control hardware scales with the trap chip rather than with beam delivery, and it underwrites the microwave-based control lines in our current Freiburg 2D-array work.</p>
+</section>
+
+<section>
+    <h2>Why this mattered</h2>
+    <p>At the time, the field largely assumed that laser-driven Raman gates were the only path forward for ion-trap quantum computing. Showing that microwave near-fields could deliver equivalent fidelity &mdash; using hardware that scales naturally with ion-trap fabrication &mdash; opened a second architecture for the community and for our own subsequent programme on reconfigurable 2D arrays.</p>
+</section>
+
+<section>
+    <h2>Related open research</h2>
+    <ul class="related-list">
+        <li><a href="https://threehouse-plus-ec.github.io/single-25Mg-plus/" target="_blank" rel="noopener">Single&nbsp;&sup2;&#x2075;Mg&#x207A;</a> &mdash; living digital twin of the single-ion Mg&#x207A; experiment whose microwave control lines derive from this NIST-era work.</li>
+        <li><a href="https://github.com/uwarring82/iontrap-dynamics" target="_blank" rel="noopener">iontrap-dynamics</a> &mdash; simulation package for trapped-ion spin&ndash;motion dynamics supporting the 2D-array architecture line.</li>
+    </ul>
+</section>
+
+<aside class="rights-notice">
+    <div class="rights-label">Rights notice &middot; summary-only</div>
+    <p>Summary only. This page does not host the article text or publisher figures. Refer to the version of record at <a href="https://doi.org/10.1038/nature10290" target="_blank" rel="noopener">doi.org/10.1038/nature10290</a>, published in <em>Nature</em> on 11 August 2011.</p>
+    <p class="audit-meta">Rights source: publisher policy audit pending, <a href="https://www.nature.com/nature-portfolio/editorial-policies/self-archiving-and-license-to-publish" target="_blank" rel="noopener">Nature Portfolio self-archiving</a>, checked 2026-04-22 &middot; Last audit: 2026-04-22 &middot; Tier C hosting does not depend on the publisher audit; see <a href="../../../policy/index.html#invariants">INV&nbsp;01</a> &middot; Policy: <a href="../../../policy/index.html">Policy&nbsp;&amp;&nbsp;Rights</a></p>
+</aside>
+
+</main>
+
+<footer>
+    Ulrich Warring &middot; Physikalisches Institut &middot; Albert-Ludwigs-Universit&auml;t Freiburg<br>
+    Part of the <a href="https://harbour-architecture.github.io/root/" target="_blank" rel="noopener">Open-Science Harbour</a> ecosystem &middot; Maps, not territory.
+</footer>
+
+</body>
+</html>

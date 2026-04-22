@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy-level renormalisation in an ultrastrongly coupled open system — Publications — Ulrich Warring</title>
+    <meta name="description" content="Tier C author summary of Colla, Hasse, Palani, Schaetz, Breuer, Warring, 'Observing time-dependent energy level renormalisation in an ultrastrongly coupled open system,' Nature Communications 16, 2502 (2025).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-body: 'Crimson Pro', 'Charter', Georgia, serif;
+            --font-heading: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-accent: #2c4a6e;
+            --color-bg: #fafaf8;
+            --color-border: #d4d0c8;
+            --color-border-light: #e8e5de;
+            --max-width: 720px;
+            --side-padding: 2rem;
+
+            --pastel-sage: #5e8a6b;
+            --pastel-sage-light: #bdd4c4;
+            --pastel-sage-bg: #f3f8f5;
+
+            --section-accent: var(--pastel-sage);
+            --section-accent-light: var(--pastel-sage-light);
+            --section-accent-bg: var(--pastel-sage-bg);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.72; font-weight: 400; }
+
+        nav { position: sticky; top: 0; z-index: 100; background: var(--color-bg); border-bottom: 1px solid var(--color-border-light); }
+        nav .nav-inner { max-width: var(--max-width); margin: 0 auto; padding: 0.65rem var(--side-padding); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+        nav .nav-name { font-family: var(--font-heading); font-weight: 600; font-size: 0.82rem; color: var(--color-text); text-decoration: none; white-space: nowrap; }
+        nav .nav-links { display: flex; gap: 1.4rem; flex-wrap: wrap; justify-content: flex-end; }
+        nav .nav-links a { font-family: var(--font-heading); font-size: 0.75rem; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.01em; border-bottom: 2px solid transparent; padding-bottom: 0.15rem; transition: color 0.2s ease; }
+        nav .nav-links a:hover, nav .nav-links a:focus-visible { color: var(--section-accent); border-bottom-color: var(--section-accent-light); }
+
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--section-accent); outline-offset: 2px; border-radius: 2px; }
+
+        main { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--side-padding); }
+
+        .paper-header { padding: 2.4rem 0 1.5rem; }
+        .back-link { font-family: var(--font-heading); font-size: 0.76rem; color: var(--color-text-secondary); text-decoration: none; display: inline-block; margin-bottom: 1rem; }
+        .back-link:hover { color: var(--section-accent); }
+
+        .tier-badge { display: inline-block; font-family: var(--font-heading); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--section-accent); background: var(--section-accent-bg); padding: 0.25rem 0.6rem; border: 1px solid var(--section-accent-light); border-radius: 2px; margin-bottom: 0.8rem; }
+
+        .paper-header h1 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; margin-bottom: 0.7rem; }
+
+        .authors { font-size: 0.95rem; color: var(--color-text); margin-bottom: 0.3rem; }
+        .authors .me { font-weight: 600; }
+        .authors .orcid { font-family: var(--font-heading); font-size: 0.7rem; color: var(--section-accent); margin-left: 0.2rem; border: 1px solid var(--section-accent-light); padding: 0.02em 0.35em; border-radius: 2px; text-decoration: none; vertical-align: 0.05em; }
+
+        .meta { font-family: var(--font-heading); font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 0.9rem; }
+        .meta a { color: var(--color-accent); text-decoration: none; }
+        .meta a:hover { text-decoration: underline; }
+
+        .action-links { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.4rem; }
+        .action-links a { font-family: var(--font-heading); font-size: 0.75rem; font-weight: 500; padding: 0.35rem 0.75rem; border-radius: 3px; text-decoration: none; border: 1px solid var(--color-border); color: var(--color-accent); transition: all 0.2s ease; }
+        .action-links a:hover, .action-links a:focus-visible { background: var(--section-accent); color: #fff; border-color: var(--section-accent); }
+
+        section { padding: 1.8rem 0 1rem; border-top: 2px solid var(--section-accent-light); }
+        section h2 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 0.9rem; color: var(--color-text); padding-bottom: 0.35rem; border-bottom: 2px solid var(--section-accent-light); display: inline-block; }
+        section a { color: var(--section-accent); text-decoration: none; }
+        section a:hover { text-decoration: underline; }
+        p { margin-bottom: 0.9rem; }
+
+        .related-list { list-style: none; padding: 0; margin: 0.6rem 0 0.2rem; }
+        .related-list li { font-size: 0.93rem; margin-bottom: 0.55rem; padding-left: 1rem; position: relative; line-height: 1.55; }
+        .related-list li::before { content: '\2013'; position: absolute; left: 0; color: var(--section-accent); }
+
+        .rights-notice { margin-top: 2rem; padding: 1.1rem 1.2rem; background: var(--section-accent-bg); border-left: 3px solid var(--section-accent); border-radius: 0 2px 2px 0; }
+        .rights-notice .rights-label { font-family: var(--font-heading); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--section-accent); margin-bottom: 0.45rem; }
+        .rights-notice p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.5rem; font-style: italic; }
+        .rights-notice .audit-meta { font-family: var(--font-heading); font-size: 0.72rem; color: var(--color-text-secondary); font-style: normal; margin-bottom: 0; line-height: 1.6; }
+        .rights-notice a { color: var(--section-accent); }
+
+        footer { max-width: var(--max-width); margin: 0 auto; padding: 2rem var(--side-padding) 3rem; border-top: 1px solid var(--color-border-light); font-family: var(--font-heading); font-size: 0.72rem; color: var(--color-text-secondary); line-height: 1.7; }
+        footer a { color: var(--color-text-secondary); }
+
+        @media (max-width: 640px) {
+            html { font-size: 16px; }
+            nav .nav-inner { flex-direction: column; gap: 0.4rem; }
+            nav .nav-links { justify-content: center; gap: 0.8rem; }
+            :root { --side-padding: 1.2rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: 0s !important; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="../../../index.html" class="nav-name">U.W.</a>
+        <div class="nav-links">
+            <a href="../../../index.html#about">About</a>
+            <a href="../../../index.html#research">Research</a>
+            <a href="../../index.html">Publications</a>
+            <a href="../../../index.html#teaching">Teaching</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+<header class="paper-header">
+    <a class="back-link" href="../../index.html">&larr; All publications</a>
+    <div class="tier-badge">Tier C &middot; Summary only</div>
+    <h1>Observing time-dependent energy level renormalisation in an ultrastrongly coupled open system</h1>
+    <p class="authors">A.&nbsp;Colla, J.&nbsp;Hasse, K.&nbsp;R.&nbsp;Palani, T.&nbsp;Schaetz, H.-P.&nbsp;Breuer, <span class="me">U.&nbsp;Warring</span><a class="orcid" href="https://orcid.org/0000-0001-8081-9718" target="_blank" rel="noopener" aria-label="ORCID of U. Warring">ORCID</a></p>
+    <p class="meta"><em>Nature Communications</em> <strong>16</strong>, 2502 (2025) &middot; Published 12 March 2025 &middot; <a href="https://doi.org/10.1038/s41467-025-57840-4" target="_blank" rel="noopener">DOI: 10.1038/s41467-025-57840-4</a></p>
+    <div class="action-links">
+        <a href="https://doi.org/10.1038/s41467-025-57840-4" target="_blank" rel="noopener">Read at publisher &rarr;</a>
+    </div>
+</header>
+
+<section>
+    <h2>Author summary</h2>
+    <p>How do the energy levels of a quantum system shift when it is strongly coupled to its environment? Standard open-system treatments assume the system&rsquo;s intrinsic spectrum is unchanged and that only dissipation broadens or shifts it. In the ultrastrong coupling regime this assumption breaks. Using a single trapped magnesium ion coupled to an engineered bosonic environment, we measured time-dependent renormalisation of the system&rsquo;s energy levels during the approach to steady state &mdash; shifts reaching 15% of the bare system frequency, driven purely by system&ndash;environment correlations. The result supports recent theoretical approaches that treat environment-induced level shifts and dissipation as co-equal ingredients rather than separate corrections, and it establishes a platform where minimal-dissipation dynamics relevant to quantum thermodynamics can be tested experimentally. The measurement combines the trapped-ion toolbox for individual control with bath engineering that would be difficult to replicate in solid-state analogues.</p>
+</section>
+
+<section>
+    <h2>Why this mattered</h2>
+    <p>In the weakly coupled regime, system and bath are conceptually separable; in the ultrastrong regime they are not. Making that non-separability visible in a controlled system &mdash; and measuring it in real time &mdash; gives theory a concrete object to test against and gives quantum thermodynamics a laboratory handle on what &ldquo;the system&rdquo; even means when it is entangled with its environment. Collaboration with A.&nbsp;Colla and H.-P.&nbsp;Breuer connected an experimental result to the minimal-dissipation line of theoretical work on open systems.</p>
+</section>
+
+<section>
+    <h2>Related open research</h2>
+    <ul class="related-list">
+        <li><a href="https://threehouse-plus-ec.github.io/single-25Mg-plus/" target="_blank" rel="noopener">Single&nbsp;&sup2;&#x2075;Mg&#x207A;</a> &mdash; the living digital twin of the experiment: Hamiltonian, open-system environment, and parameter space maintained from three co-equal perspectives (experiment, theory, numerics).</li>
+        <li><a href="https://deep-relaxation-ordering.github.io/q-root/" target="_blank" rel="noopener">Quantum Relaxation Ordering</a> &mdash; open research programme on Mpemba-like relaxation ordering in trapped-ion systems (with A.&nbsp;Colla).</li>
+    </ul>
+</section>
+
+<aside class="rights-notice">
+    <div class="rights-label">Rights notice &middot; summary-only</div>
+    <p>Summary only. This page does not host the article text or publisher figures. Refer to the version of record at <a href="https://doi.org/10.1038/s41467-025-57840-4" target="_blank" rel="noopener">doi.org/10.1038/s41467-025-57840-4</a>, published in <em>Nature Communications</em> on 12 March 2025.</p>
+    <p class="audit-meta">Rights source: <a href="https://www.nature.com/articles/s41467-025-57840-4" target="_blank" rel="noopener">publisher page</a>, checked 2026-04-22 &middot; Last audit: 2026-04-22 &middot; Tier C per Phase 1 editorial restraint (<a href="../../../policy/index.html#invariants">INV&nbsp;04</a>); article is CC&nbsp;BY&nbsp;4.0 and could be promoted to Tier A after figure-rights verification &middot; Policy: <a href="../../../policy/index.html">Policy&nbsp;&amp;&nbsp;Rights</a></p>
+</aside>
+
+</main>
+
+<footer>
+    Ulrich Warring &middot; Physikalisches Institut &middot; Albert-Ludwigs-Universit&auml;t Freiburg<br>
+    Part of the <a href="https://harbour-architecture.github.io/root/" target="_blank" rel="noopener">Open-Science Harbour</a> ecosystem &middot; Maps, not territory.
+</footer>
+
+</body>
+</html>

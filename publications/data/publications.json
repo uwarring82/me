@@ -1,0 +1,49 @@
+{
+  "_warning": "GENERATED ARTEFACT. Do not edit. Source: papers/*/rights.json. Regenerate with tools/build-publications-index.py.",
+  "schema_version": "0.2",
+  "entries": [
+    {
+      "slug": "energy-level-renormalisation-2025",
+      "doi": "10.1038/s41467-025-57840-4",
+      "title": "Observing time-dependent energy level renormalisation in an ultrastrongly coupled open system",
+      "date_published": "2025-03-12",
+      "journal": "Nature Communications",
+      "tier": "C",
+      "display_status": "live",
+      "themes": [
+        "open-quantum-systems",
+        "quantum-thermodynamics",
+        "ultrastrong-coupling",
+        "trapped-ions"
+      ]
+    },
+    {
+      "slug": "phonon-pair-creation-2019",
+      "doi": "10.1103/PhysRevLett.123.180502",
+      "title": "Phonon pair creation by inflating quantum fluctuations in an ion trap",
+      "date_published": "2019-10-31",
+      "journal": "Physical Review Letters",
+      "tier": "C",
+      "display_status": "live",
+      "themes": [
+        "analogue-quantum-phenomena",
+        "dynamical-casimir",
+        "trapped-ions"
+      ]
+    },
+    {
+      "slug": "microwave-quantum-logic-gates-2011",
+      "doi": "10.1038/nature10290",
+      "title": "Microwave quantum logic gates for trapped ions",
+      "date_published": "2011-08-11",
+      "journal": "Nature",
+      "tier": "C",
+      "display_status": "live",
+      "themes": [
+        "quantum-control",
+        "microwave-gates",
+        "trapped-ions"
+      ]
+    }
+  ]
+}
