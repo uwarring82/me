@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "doi": "10.1103/PhysRevLett.123.180502",
-  "arxiv_id": null,
+  "arxiv_id": "1903.05523",
   "canonical_url": "https://doi.org/10.1103/PhysRevLett.123.180502",
   "date_published": "2019-10-31",
   "title": "Phonon pair creation by inflating quantum fluctuations in an ion trap",
@@ -41,6 +41,6 @@
   "audit": {
     "last_audit": "2026-04-22",
     "auditor": "U.W.",
-    "auditor_note": "Tier C summary-first per Phase 1. Trapped-ion analogue of inflationary phonon-pair creation; linked to the Undetected Modes open-research concept note."
+    "auditor_note": "Tier C summary-first per Phase 1. Trapped-ion analogue of inflationary phonon-pair creation; linked to the Undetected Modes open-research concept note. Phase 2: arXiv preprint 1903.05523 linked (preprint title used 'Particle pair creation by inflation of quantum vacuum fluctuations'; PRL retitled to 'Phonon pair creation...')."
   }
 }

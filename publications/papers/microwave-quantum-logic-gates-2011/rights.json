@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "doi": "10.1038/nature10290",
-  "arxiv_id": null,
+  "arxiv_id": "1104.3573",
   "canonical_url": "https://doi.org/10.1038/nature10290",
   "date_published": "2011-08-11",
   "title": "Microwave quantum logic gates for trapped ions",
@@ -41,6 +41,6 @@
   "audit": {
     "last_audit": "2026-04-22",
     "auditor": "U.W.",
-    "auditor_note": "Tier C summary-first per Phase 1. Paper is from the NIST era under the Ospelkaus/Leibfried collaboration. Exact publication day recorded (Nature 476, online 2011-08-11)."
+    "auditor_note": "Tier C summary-first per Phase 1. Paper is from the NIST era under the Ospelkaus/Leibfried collaboration. Exact publication day recorded (Nature 476, online 2011-08-11). Phase 2: arXiv preprint 1104.3573 linked."
   }
 }

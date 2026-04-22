@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2",
   "doi": "10.1038/s41467-025-57840-4",
-  "arxiv_id": null,
+  "arxiv_id": "2408.15928",
   "canonical_url": "https://doi.org/10.1038/s41467-025-57840-4",
   "date_published": "2025-03-12",
   "title": "Observing time-dependent energy level renormalisation in an ultrastrongly coupled open system",
@@ -40,6 +40,6 @@
   "audit": {
     "last_audit": "2026-04-22",
     "auditor": "U.W.",
-    "auditor_note": "Tier C summary-first per Phase 1. Rights record is accurate (Nature Communications 2025 defaults to CC BY 4.0); paper could be promoted to Tier A after panel-by-panel figure-rights verification, but editorial restraint (INV 04) keeps it at Tier C for now."
+    "auditor_note": "Tier C summary-first per Phase 1. Rights record is accurate (Nature Communications 2025 defaults to CC BY 4.0); paper could be promoted to Tier A after panel-by-panel figure-rights verification, but editorial restraint (INV 04) keeps it at Tier C for now. Phase 2: arXiv preprint 2408.15928 (submitted 2024-08-28) linked."
   }
 }
