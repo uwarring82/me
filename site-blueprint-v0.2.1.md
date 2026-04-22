@@ -5,7 +5,7 @@
 **Supersedes:** v0.2 (2026-04-22), v0.1 (2026-04-22)
 **Stance:** Guardian (lead) · Architect (consult, endorsed) · Scout (review, endorsed)
 **Scope:** Full site architecture, including the publication registry, rights layer, and policy layer. Covers existing pages and planned additions.
-**Endorsement marker:** *v1.0 candidate — implementation-ready pending final Architect and Integrator sign-off. Editorial harmonisation applied per Scout review (2026-04-22): top-level `publications.json` envelope made explicit, `YYYY-MM-01` fallback clarified as sorting surrogate, `discriminant_action` required-cases enumerated, coauthors references aligned to full schema path, §11 build-step wording normalised to "Option A+". Phase 0 implementation under way in parallel.*
+**Endorsement marker:** *v1.0 candidate — implementation-ready pending final Architect and Integrator sign-off. Editorial harmonisation applied per Scout review (2026-04-22): top-level `publications.json` envelope made explicit, `YYYY-MM-01` fallback clarified as sorting surrogate, `discriminant_action` required-cases enumerated, coauthors references aligned to full schema path, §11 build-step wording normalised to "Option A+". **Implementation status (2026-04-22):** Phase 0 (policy layer), Phase 1 (summary-first registry with three Tier C seed papers + aggregator), and Phase 2 (arXiv layer) all live on `main`. Phase 3 (per-paper manuscript layer) remains opt-in and unscheduled.*
 
 ---
 
@@ -332,13 +332,13 @@ Until one of those triggers, stay no-build.
 
 ## 7. Phasing (revised)
 
-**Phase 0 — Policy first.** Build `policy/index.html`, `policy/attribution-templates.html`, and `CONTENT-LICENCE.md`. Add footer link. *No publication pages yet.* This phase exists to prevent every future page from improvising against an unstated standard.
+**Phase 0 — Policy first.** *Status: implemented 2026-04-22.* Built `policy/index.html`, `policy/attribution-templates.html`, and `CONTENT-LICENCE.md`; added footer link from the landing page. This phase existed to prevent every future page from improvising against an unstated standard, and the policy page is now canonical for all subsequent tier, licence, and governance decisions.
 
-**Phase 1 — Summary-first registry.** Three to five Tier C author-summary pages plus the aggregator script. Suggested seed: the 2025 Nature Communications paper, one PRL from the NIST era (Microwave quantum logic gates, Nature 2011 — Tier C), and one recent open-research-linked paper. Build `publications/index.html` as the filterable registry.
+**Phase 1 — Summary-first registry.** *Status: implemented 2026-04-22.* Seeded with three Tier C author-summary pages — the 2025 Nature Communications paper, the NIST-era Ospelkaus/Warring 2011 Nature paper, and the Wittemer 2019 PRL on phonon-pair creation (linked to the Undetected Modes concept note). Built `tools/build-publications-index.py` as the aggregator and `publications/index.html` as the filterable registry.
 
-**Phase 2 — arXiv layer (was Phase 3 in v0.1).** Populate `arxiv_id` fields in all existing `rights.json` files. Surface arXiv links prominently on each paper page. Lowest friction, lowest rights exposure; should logically precede the manuscript layer.
+**Phase 2 — arXiv layer (was Phase 3 in v0.1).** *Status: implemented 2026-04-22.* Populated `arxiv_id` in all three seed `rights.json` files (Colla et al. 2408.15928; Ospelkaus et al. 1104.3573; Wittemer et al. 1903.05523) and surfaced arXiv links on each paper page as a second action button alongside the publisher link. Index fields in `publications.json` intentionally unchanged; arXiv is surfaced on paper pages, not on the registry index.
 
-**Phase 3 — Per-paper manuscript layer (was Phase 2 in v0.1, opt-in).** Only after Phase 2 is stable. Begin with the 2025 Nature Communications paper as Tier A pilot — but only after panel-by-panel figure rights verification. Each subsequent paper is a discrete decision, not a default.
+**Phase 3 — Per-paper manuscript layer (was Phase 2 in v0.1, opt-in).** *Status: pending, unscheduled.* Only after Phase 2 is stable in practice. Begin with the 2025 Nature Communications paper as Tier A pilot — but only after panel-by-panel figure rights verification. Each subsequent paper is a discrete decision, not a default.
 
 ---
 
@@ -396,17 +396,17 @@ Numbered, listed in `policy/index.html`, never silently relaxed.
 
 ## 12. Endorsement & Next Steps
 
-This blueprint is a **revised draft Coastline document** for the site, with all v0.1 open decisions closed and convergent revisions from Architect and Scout integrated.
+This blueprint is a **revised draft Coastline document** for the site, with all v0.1 open decisions closed and convergent revisions from Architect and Scout integrated. Phases 0, 1, and 2 are now implemented on `main` (see §7).
 
 **Stance sign-off status:**
 - **Guardian:** endorsed (this draft).
-- **Architect:** endorsed in principle (Option B selected, schema separation accepted); confirmation pending on final schema text in §3.2.
-- **Integrator:** endorsement pending; phasing revised per Scout's signal and is conservative.
+- **Architect:** endorsed in principle (Option A+ selected, schema separation accepted); confirmation pending on final schema text in §3.2 after live inspection of the seed `rights.json` files.
+- **Integrator:** endorsement pending; phasing revised per Scout's signal and has survived implementation.
 
 **Recommended next steps:**
-1. Architect confirms §3.2 schema text matches the rights/display separation as proposed.
-2. Integrator reviews phasing and the 14-day Tier B fallback.
+1. Architect confirms §3.2 schema text matches the rights/display separation as implemented across the three seed papers.
+2. Integrator reviews the delivered phasing (0 → 1 → 2) and the 14-day Tier B fallback as written on `policy/index.html`.
 3. On three-stance endorsement, this becomes v1.0 (ratified).
-4. Phase 0 implementation begins: build `policy/index.html`, `policy/attribution-templates.html`, `CONTENT-LICENCE.md`, and the aggregator script. *No paper pages yet.*
+4. Phase 3 (per-paper manuscript layer) remains opt-in and unscheduled; any Tier A or Tier B promotion is a discrete decision, not a default — begin only after panel-by-panel figure-rights verification and recorded co-author consultation where applicable.
 
 *Drafted under Guardian stance. Convergent revisions integrated. No standing-order veto raised. Returning to Council for Architect and Integrator endorsement.*

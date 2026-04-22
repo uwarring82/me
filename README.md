@@ -8,71 +8,79 @@ the University of Freiburg.
 
 ## What this is
 
-A single-page academic profile covering research, teaching, and open-science
-work. Open science is not a separate section — it is integrated into the
-research areas where it belongs. The page is hosted on GitHub Pages and requires
-no build step — it is plain HTML and CSS served directly.
+An academic profile covering research, teaching, and open-science work, with a
+per-paper publications registry and a canonical policy layer. Open science is
+not a separate section — it is integrated into the research areas where it
+belongs. Everything is hosted on GitHub Pages as plain static files. The only
+local tool is a short Python aggregator that regenerates the publications
+index; see [How to update](#how-to-update).
 
 
 ## Repository structure
 
 ```
 .
-├── index.html      Main (and only) page
-├── photo.png       Portrait photograph (displayed within an SVG network topology)
-├── README.md       This file
-└── LICENSE         MIT licence for code
+├── index.html                                  Landing page (About, Research, Teaching)
+├── photo.png                                   Portrait photograph
+├── policy/
+│   ├── index.html                              Canonical policy page (licences, tiers, invariants)
+│   └── attribution-templates.html              Enumerated notice_template values
+├── publications/
+│   ├── index.html                              Filterable registry (fetches publications.json)
+│   ├── data/
+│   │   └── publications.json                   GENERATED ARTEFACT — do not hand-edit
+│   └── papers/
+│       └── <slug>/
+│           ├── index.html                      Tier C author summary page
+│           └── rights.json                     Per-paper rights manifest (source of truth)
+├── tools/
+│   └── build-publications-index.py             Aggregator: scans rights.json, writes publications.json
+├── CONTENT-LICENCE.md                          Repo-legible mirror of the licence regime
+├── LICENSE                                     MIT licence for code
+├── README.md                                   This file
+└── site-blueprint-v0.2.1.md                    Site architecture and governance
 ```
+
+Canonical authority flows top-down from [`policy/index.html`](policy/index.html):
+where anything here conflicts with it, the policy page governs. Full
+architecture and tier definitions: [`site-blueprint-v0.2.1.md`](site-blueprint-v0.2.1.md).
 
 
 ## How to update
 
-1. Edit `index.html` directly. All content, styles, and structure are in this
-   single file.
-2. Commit and push to the `main` branch. GitHub Pages will deploy automatically.
-3. To replace the portrait, overwrite `photo.png` with a new file of the same
-   name. The image is clipped to a circle by CSS.
+**Landing-page content (About, Research, Teaching).** Edit
+[`index.html`](index.html) directly. Commit and push to `main`; GitHub Pages
+deploys automatically. The portrait lives at `photo.png`; the CSS renders it
+as a small rounded square (`border-radius: 5px`) alongside an SVG network
+badge, not as a circular avatar.
+
+**Publications registry.** The registry is driven by per-paper manifests.
+
+1. Create `publications/papers/<slug>/rights.json` — the source of truth for
+   the paper's bibliographic data, rights decisions, display tier, and audit
+   record. Schema in `site-blueprint-v0.2.1.md` §3.2.
+2. Create `publications/papers/<slug>/index.html` — the Tier C author summary
+   page (title, authors, DOI, arXiv, 150-word summary, "why this mattered",
+   related dossiers, machine-rendered rights notice). Follow the template from
+   any existing paper.
+3. Run the aggregator: `python3 tools/build-publications-index.py`. It scans
+   every `rights.json`, validates the schema, and rewrites
+   `publications/data/publications.json`. Non-zero exit on validation failure.
+4. Commit the new `rights.json`, the paper `index.html`, and the regenerated
+   `publications.json` together.
+
+**Policy layer.** Changes to `policy/index.html` are governance acts, not
+routine edits. Update the blueprint first (or in the same commit), and ensure
+`CONTENT-LICENCE.md` still mirrors the licence portion.
 
 
-## Sections
+## Sections on the landing page
 
-The page has three sections, coloured in spectral order (blue → green → rose):
-
-| Section | Colour | Content |
+| Section | Accent | Content |
 |---|---|---|
 | About | Blue | Biography, positions, Harbour introduction |
-| Research | Green | Five subsections with publications and open research repos |
+| Research | Green | Four subsections with publications and open research links |
 | Teaching | Rose | Courses, pilot projects, course materials |
-
-
-## External links
-
-The page links to several external resources. If any of these change, update the
-corresponding `href` in `index.html`:
-
-| Destination | Current URL |
-|---|---|
-| Group page | https://www.qsim.uni-freiburg.de/members-en/uwarring |
-| Open-Science Harbour | https://uwarring.gitbook.io/ions-in-freiburg |
-| Harbour Architecture (Root) | https://harbour-architecture.github.io/root/ |
-| Google Scholar | https://scholar.google.com/citations?user=33v2gBkAAAAJ |
-| ORCID | https://orcid.org/0000-0001-8081-9718 |
-| GitHub profile | https://github.com/uwarring82 |
-| CCUF (Zenodo) | https://doi.org/10.5281/zenodo.17948436 |
-| Quantum Relaxation Ordering | https://deep-relaxation-ordering.github.io/q-root/ |
-| Stroboscopic Travelling Waves | https://strobo-travels-deep.github.io/root/ |
-| Undetected Modes | https://threehouse-plus-ec.github.io/undetected-modes/ |
-| Generator Layers (GLHC) | https://threehouse-plus-ec.github.io/GLHC/ |
-| Amazon Seasonal Discharge | https://amazon-breakwater.github.io/root/ |
-| Numerical Clock Networks | https://adv-labs-ufr.github.io/numerical_clock_networks/ |
-| One Propagator, Three Regimes | https://uwarring82.github.io/advlab_bsm/ |
-
-
-## Photo
-
-The portrait is sourced from the University of Freiburg group page. It is
-displayed inside an SVG network topology (one node among peers). The image is
-not covered by the MIT licence below — see the licensing note.
 
 
 ## Fonts
@@ -87,7 +95,10 @@ No fonts are bundled in the repository.
 
 ## Licence
 
-Unless otherwise noted, the source code of this repository (HTML, CSS) is
+The source code of this repository (HTML, CSS, and the aggregator script) is
 licensed under the [MIT License](LICENSE).
 
-Text content and images remain © Ulrich Warring, all rights reserved.
+Content licences for prose, portrait, and site schematics are declared
+canonically on [`policy/index.html`](policy/index.html) and mirrored in
+[`CONTENT-LICENCE.md`](CONTENT-LICENCE.md). In any conflict, the policy page
+governs.
