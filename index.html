@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulrich Warring — Experimental Quantum Physics</title>
+    <meta name="description" content="Ulrich Warring, experimental quantum physicist at the University of Freiburg.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-body: 'Crimson Pro', 'Charter', Georgia, serif;
+            --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-accent: #2c4a6e;
+            --color-bg: #fafaf8;
+            --color-border: #d4d0c8;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 18px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.25rem;
+        }
+
+        .skip-link { position: absolute; top: -100%; left: 0; padding: 0.75rem 1.5rem; background: var(--color-text); color: #fff; font-family: var(--font-mono); font-size: 0.75rem; text-decoration: none; z-index: 1000; }
+        .skip-link:focus { top: 0; }
+
+        a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 2px; }
+
+        .card { max-width: 30rem; width: 100%; text-align: center; }
+
+        .portrait {
+            width: 116px;
+            height: 116px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1.6rem;
+        }
+
+        h1 {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 2rem;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+            margin-bottom: 0.7rem;
+        }
+
+        .role {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .affil {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            font-family: var(--font-mono);
+            font-style: normal;
+            font-size: 0.78rem;
+            line-height: 1.85;
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+        }
+        .contact a { color: var(--color-accent); text-decoration: none; }
+        .contact a:hover, .contact a:focus-visible { text-decoration: underline; }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+        .links a {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.01em;
+            color: var(--color-accent);
+            text-decoration: none;
+            border: 1px solid var(--color-border);
+            border-radius: 3px;
+            padding: 0.55rem 1rem;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+        .links a:hover, .links a:focus-visible {
+            color: #fff;
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0s !important; }
+        }
+    </style>
+</head>
+<body>
+<a href="#content" class="skip-link">Skip to content</a>
+
+<main id="content" class="card">
+    <img class="portrait" src="photo.png" alt="Portrait of Ulrich Warring" width="116" height="116">
+    <h1>Ulrich Warring</h1>
+    <p class="role">Experimental Quantum Physics</p>
+    <p class="affil">Physikalisches Institut &middot; Albert-Ludwigs-Universit&auml;t Freiburg</p>
+    <address class="contact">
+        Gustav-Mie-Haus, Room&nbsp;04&nbsp;017<br>
+        <a href="mailto:ulrich.warring@physik.uni-freiburg.de">ulrich.warring@physik.uni-freiburg.de</a><br>
+        <a href="tel:+497612037645">+49&nbsp;761&nbsp;203&nbsp;7645</a>
+    </address>
+    <nav class="links" aria-label="Profile links">
+        <a href="https://www.qsim.uni-freiburg.de/" target="_blank" rel="noopener">University group</a>
+        <a href="https://github.com/uwarring82" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/0000-0001-8081-9718" target="_blank" rel="noopener">ORCID</a>
+    </nav>
+</main>
+
+</body>
+</html>
